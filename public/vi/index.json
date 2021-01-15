@@ -1,0 +1,92 @@
+[
+{
+	"uri": "/vi/1-prerequisite/",
+	"title": "Các bước chuẩn bị",
+	"tags": [],
+	"description": "",
+	"content": "Sơ đồ tổng quan bài thực hành Trong bài thực hành này, chúng ta cần chuẩn bị một số dịch vụ để có thể tiến hành triển khai ứng dụng ShareNote sử dụng Auto Scaling Group cùng với Elastic Loadbalancer. Một cách tổng quan, chúng ta sẽ triển khai ứng dụng ShareNote theo mô hình như sau:\n"
+},
+{
+	"uri": "/vi/",
+	"title": "Triển khai Ứng dụng ShareNote với Auto Scaling Group",
+	"tags": [],
+	"description": "",
+	"content": "Triển khai Ứng dụng ShareNote với Auto Scaling Group Ở bài thực hành này, chúng ta sẽ tiến hành việc triển khai ứng dụng với Auto Scaling Group nhằm đảm bảo khả năng co dãn của ứng dụng đó theo nhu cầu của người truy cập. Thêm vào đó, chúng ta cũng sẽ triển khai Elastic Load Balancer nhằm cân bằng tải và điều phối các yêu cầu truy cập từ phía người dùng đến Application Tier của chúng ta.\nHãy chắc chắn rằng bạn đã xem qua tài liệu Triển khai Ứng dụng ShareNote trên Máy ảo Windows/Ubuntu và nắm được cách triển khai ứng dụng trên máy ảo. Chúng ta sẽ cần sử dụng máy ảo được triển khai Share Note cho việc triển khai đồng loạt và mở rộng trong Auto Scaling Group.\n"
+},
+{
+	"uri": "/vi/1-prerequisite/1-security-group/",
+	"title": "Tạo Security Group",
+	"tags": [],
+	"description": "",
+	"content": "Nội dung:\n Tạo Security Group  Chúng ta sẽ bắt đầu với việc tạo một Security Group cho bài thực hành này.\nĐể xác định các rule Inbound cần có, chúng ta liệt kê ra các yêu cầu như sau:\n Người dùng truy cập từ ngoài vào ứng dụng Share Note thông qua cổng 80 với giao thức HTTP với Source IP bất kì. Load Balancer sẽ điều phối các yêu cầu này đến các server thông qua cổng 8080 với Source IP trong VPC. Các Application server sẽ giao tiếp với Database thông qua cổng 3306 với Source IP trong VPC. Chúng ta sẽ mở truy cập SSH để có thể kết nối đến instance để triển khai ứng dụng.  Trên thực tế, chúng ta nên tạo các security group riêng biệt cho từng thành phần. Tuy nhiên trong khuôn khổ bài thực hành này, chúng ta sẽ sử dụng một security group (Các rule không trùng lẫn nhau).\n\rTạo Security Group Dựa vào đó, chúng ta bắt đầu tạo Security Group theo các bước như sau:\n Truy cập vào AWS Management Console. Lựa chọn Services ở thanh điều hướng và tìm kiếm dịch vụ EC2. Ở thanh điều hướng bên trái, chọn Security Groups. Ở trang Security Groups, chọn Create Security Group. Ở trang Create security group, thiết lập các thông số như sau:  Basic details:  Security group name: Nhập vào tên security group (VD: sharenote-sg) Description: Nhập vào diễn giải của security group.   Inbound rules: Thêm các Inbound rule như đề cập ở trên. Chọn Add rule để thêm một rule.  Type: HTTP | Source: Anywhere Type: Custom TCP | Port range: 8080 | Source: Custom 172.31.0.0/16 (VPC CIDR block) Type: MySQL/Aurora | Source: Custom 172.31.0.0/16 (VPC CIDR block) Type: SSH | Source: My IP      Chọn Create security group.  Chúng ta đã hoàn thành việc tạo Security Group.\n"
+},
+{
+	"uri": "/vi/2-launch-template/",
+	"title": "Khởi tạo Launch Template",
+	"tags": [],
+	"description": "",
+	"content": "Nội dung:\n Tạo Launch Template  Launch Templates cung cấp cho bạn một cách mới để tạo các mẫu cho việc tạo các yêu cầu khởi chạy của bạn. Launch Templates quy trình hóa và đơn giản hóa quy trình khởi chạy cho các dịch vụ như Auto Scaling, instance Spot Fleet, Spot, và On-Demand.\nTạo Launch Template Để tạo Launch Template, chúng ta thực hiện như sau:\n Truy cập vào AWS Management Console. Lựa chọn Services ở thanh điều hướng và tìm kiếm dịch vụ EC2. Ở thanh điều hướng bên trái, chọn Launch Templates. Ở trang khởi đầu, chọn Create launch template. Ở trang Create launch template, thiết lập launch template với các thông số như sau:  Launch template name and description:  Launch template name - required: sharenote-template (Tên do bạn chọn)   Amazon machine image (AMI):  AMI: Lựa chọn sharenote-image mà chúng ta đã tạo ở bước trước.       Instance type:  Instance type: Lựa chọn t2.micro (Đây là lựa chọn cho bài thực hành, thực tế sẽ có yêu cầu cấu hình lớn hơn)   Key pair (login)  Key pair name: Lựa chọn key pair đang sử dụng của bạn.   Network settings:  Security groups: Lựa chọn Security Group mà bạn đã tạo ra và phù hợp. (VD: sharenote-sg)     Chọn Create launch template để tạo template. Chọn View lauch template để hoàn thành việc khởi tạo.  "
+},
+{
+	"uri": "/vi/1-prerequisite/2-database/",
+	"title": "Tạo ShareNote Database",
+	"tags": [],
+	"description": "",
+	"content": "Nội dung:\n 1. Tạo cơ sở dữ liệu với AWS RDS 2. Triển khai Multi-AZ Database  Ở bước này, chúng ta sẽ khởi tạo một database cho ứng dụng ShareNote được triển khai ở bước tiếp theo. Với database, chúng ta sẽ sử dụng dịch vụ Amazon RDS.\nỨng dụng ShareNote sử dụng MySQL nên chúng ta cũng sẽ lựa chọn MySQL Engine.\n\r1. Tạo cơ sở dữ liệu với AWS RDS Chúng ta sẽ bắt đầu khởi tạo Database cho Share Note.\n Truy cập vào AWS Management Console. Lựa chọn Services ở thanh điều hướng và tìm kiếm dịch vụ RDS. Chọn Create database. Lựa chọn các thông số thiết lập cho Database: (Các thông số không được nhắc đến sẽ giữ ở thiết lập mặc địnhđịnh)  Choose a database creation method: Chọn Standard create Engine options: Chọn MySQL Templates: Chọn Free tier (Đây là lựa chọn đối với mục tiêu là bài thực hành.) Settings:  DB instance identifier: sharenote-db (hoặc tên mà bạn mong muốn) Credentials Settings:  Master password: Nhập mật khẩu với độ phức tạp theo yêu cầu. Confirm password: Nhập lại một lần mật khẩu    Connectivity:  Additional connectivity configuration  VPC security group: Chọn Choose existing (hoặc Create new để tạo mới) để chọn Security Group phù hợp Existing VPC security groups: Chọn sharenote-sg (hoặc tên Security Group đang có của bạn)       Additional configuration:  Database options:  Initial database name: Nhập vào NoteDB (Tên database sẽ được khởi tạo ban đầu)    Deletion protection: Chọn vào lựa chọn Enable deletion protection     Kiểm tra lại và chọn Create database. Database sẽ được khởi tạo và ở trạng thái Creating. Hãy đợi cho Status chuyển sang Available là đã sẵn sàng sử dụng.  Chọn vào sharenote-db trong danh sách Databases. Ở trang thông tin database, mục Endpoint \u0026amp; port, ghi chú lại Endpoint của database. Chúng ta sẽ sử dụng thông tin này cho việc cấu hình ở bước kế tiếp.   Đến đây, chúng ta đã hoàn thành việc tạo Database cho Share Note.\n2. Triển khai Multi-AZ Database Việc triển khai khả năng Dự phòng cho database với AWS RDS là cực kì dễ dàng.\nĐối với trường hợp triển khai trên môi trường Dev/Test (hoặc Production) bạn nên lựa chọn Multi-AZ deployment để tạo thêm một standby instance ở AZ khác phục vụ cho mục tiêu dự phòng.\n\r"
+},
+{
+	"uri": "/vi/3-target-group/",
+	"title": "Khởi tạo Target Group",
+	"tags": [],
+	"description": "",
+	"content": "Nội dung:\n Tạo Target Group  Tạo Target Group Để tạo Launch Template, chúng ta thực hiện như sau:\n Truy cập vào AWS Management Console. Lựa chọn Services ở thanh điều hướng và tìm kiếm dịch vụ EC2. Ở thanh điều hướng bên trái, chọn Target Groups. Ở trang Target groups, chọn Create launch template. Ở trang Specify group details, thiết lập các thông số như sau cho target group:  Basic configuration:  Choose a target type: Chọn Instances Target group name: Nhập tên của target group (VD: sharenote-tg) Protocol: HTTP Port: 8080 (Port sử dụng bởi ShareNote)     Chọn Next.  Ở trang Register targets, chọn Create target group.  Danh sách target group sẽ liệt kê target group mà chúng ta vừa tạo trong danh sách.\nChúng ta đã hoàn thành việc tạo target group.\n"
+},
+{
+	"uri": "/vi/1-prerequisite/3-deploy-sharenote/",
+	"title": "Triển khai Máy ảo ShareNote",
+	"tags": [],
+	"description": "",
+	"content": "Nội dung:\n Thiết lập cấu hình Database cho ShareNote Thiết lập khởi chạy ứng dụng khi khởi chạy instance  Ứng dụng ShareNote cho phép tạo các ghi chú và chia sẻ cho tất cả các người dùng khác. ShareNote có thể được triển khai dễ dàng trên cả Windows và Linux.\nĐể tìm hiểu về triển khai ShareNote, bạn có thể truy cập vào Triển khai Ứng dụng ShareNote trên Máy ảo Windows/Ubuntu\nTrong bài thực hành này, chúng ta sẽ sử dụng instance Ubuntu để triển khai Share Note. Instance này sẽ được triển khai Share Note và được sử dụng cho bước tiếp theo.\n\rThiết lập cấu hình Database cho ShareNote Đối với bài thực hành này, chúng ta không sử dụng local database nữa mà thay vào đó là sử dụng dịch vụ Amazon RDS.\nChúng ta sẽ bắt đầu tạo một đoạn script thiết lập và khởi chạy ứng dụng ShareNote (startup.sh)\n Kết nối đến Ubuntu instance đã được khởi tạo. Từ cửa sổ dòng lệnh, nhập lệnh sau để tạo tập tin chứa script (đường dẫn có thể thay đổi)  $ sudo vi /etc/init.d/startup.sh\rNhập nội dung script và các thông tin của bạn vào tập tin.  export MYSQL_HOST=sharenote-rds.cxm2fv9obino.ap-northeast-1.rds.amazonaws.com\rexport MYSQL_DATABASE=NoteDB\rexport MYSQL_USER=admin\rexport MYSQL_PASSWORD=*Replace with your password*\rwget \u0026#34;https://example-corp-storage.s3.amazonaws.com/deploy-artifact/demo-0.0.1-SNAPSHOT.jar\u0026#34; -O demo-0.0.1-SNAPSHOT.jar\rjava -jar demo-0.0.1-SNAPSHOT.jar \u0026amp;\rLưu tập tin lại với :wq trong vi editor. Thiết lập thuộc tính cho script mà chúng ta vừa viết.  $ sudo chmod +x /etc/init.d/startup.sh\r\r\r\rRelated files\r\r\rstartup.sh\r\r(0 ko)\r\r\r\rDựa vào đoạn mã trên, chúng ta thấy:\n MYSQL_HOST: Chứa thông tin Endpoint của Database mà chúng ta đã tạo ở phần trước. MYSQL_DATABASE: Là tên database được khởi tạo trong quá trình tạo database instance ở phần trước. MYSQL_USER: User mặc định khi khởi tạo. MYSQL_PASSWORD: Mật khẩu được đặt cho user admin.  Bạn có thể khởi chạy thử bằng việc chạy đoạn mã trên. Share Note sẽ được khởi chạy và kết nối đến Database và chúng ta có thể truy cập ngay lập tức ở localhost.\nThiết lập khởi chạy ứng dụng khi khởi chạy instance Trên Ubuntu, chúng ta có thể thiết lập hệ thống khởi chạy đoạn script khởi chạy Share Note khi instance được Start.\n Kết nối đến Ubuntu instance đã được khởi tạo. Chạy lệnh sau để mở thiết lập crontab và thiết lập việc khởi chạy ứng dụng khi instance được khởi chạy.  $ crontab -e\rNhập nội dung sau vào cuối các nội dung (đường dẫn đến tập tin script có thể khác và bạn cần thay đổi để phù hợp) để thiết lập khởi chạy script khi khởi động.  @reboot /etc/init.d/startup.sh\rNhấn tổ hợp phím Ctr + X để thoát và Y để đồng ý lưu thay đổi cho crontab.   Bạn có thể kiểm tra bằng việc khởi động lại instance.\n"
+},
+{
+	"uri": "/vi/1-prerequisite/4-create-ami/",
+	"title": "Khởi tạo AMI từ Máy ảo",
+	"tags": [],
+	"description": "",
+	"content": "Nội dung:\n Khởi tạo AMI từ Máy ảo  Trong bước này, để triển khai trên Auto Scaling Group, chúng ta sẽ bắt đầu tạo một AMI chứa thiết lập và ứng dụng ShareNote.\nKhởi tạo AMI từ Máy ảo Để khởi tạo AMI từ instance, chúng ta thực hiện các bước:\n Truy cập vào EC2 Management Console. Chọn Instances. Trong danh sách instance, chọn Ubuntu instance mà chúng ta đã thiết lập ở phần trước. Chọn menu Actions. Trong Image and templates, chọn Create image.  Ở trang Create image, thiết lập các thông tin cho AMI như sau:  Image name: Nhập tên AMI (VD: sharenote-image) Các thông số khác có thể để mặc định   Chọn Create image. AMI sẽ bắt đầu được khởi tạo và chúng ta có thể kiểm tra AMI trong mục Images \u0026gt; AMIs ở thanh điều hướng bên tay trái. Đợi cho Status chuyển thành available thì AMI đã sẵn sàng để sử dụng.   Đến đây, chúng ta đã hoàn thành các bước chuẩn bị cho việc triển khai Share Note với Auto Scaling Group.\nỞ phần kế tiếp, chúng ta sẽ bắt đầu khởi tạo và triển khai nội dung chính của bài thực hành này.\n"
+},
+{
+	"uri": "/vi/4-asg/",
+	"title": "Khởi tạo AutoScalingGroup",
+	"tags": [],
+	"description": "",
+	"content": "Nội dung:\n Tạo AutoScaling Group  Ở bước này, chúng ta sẽ triển khai Auto Scaling Group cho ứng dụng Share Note để đảm bảo ứng dụng của chúng ta sẽ được triển khai với tính sẵn sàng cao đáp ứng mục tiêu của bài thực hành này.\nTạo AutoScaling Group Chúng ta bắt đầu khởi tạo Auto Scaling Group như sau:\n Truy cập vào AWS Management Console. Lựa chọn Services ở thanh điều hướng và tìm kiếm dịch vụ EC2. Ở thanh điều hướng bên trái, chọn Auto Scaling Groups. Ở trang Auto Scaling Groups, chọn Create an Auto Scaling group. Bắt đầu với trang Choose launch template or configuration, thiết lập các thông tin như sau:  Name: Nhập vào tên của Auto Scaling Group (VD: sharenote-asg) Launch template: Chọn launch template chúng ta đã tạo trước đó (VD: sharenote-template)   Chọn Next.  Ở trang Configure settings:  Network:  Subnets: Lựa chọn 2 subnet ở hai AZ khác nhau (VD: ap-northeast-1a và ap-northeast-1c)     Chọn Next.  Ở trang Configure advanced options:  Load balancing - optional: Chọn Enable load balancing  Chọn Application Load Balancer or Network Load Balancer. Choose a target group for your load balancer: Chọn target group mà chúng ta đã tạo trước đó. (VD: sharenote-tg)     Chọn Next.  Ở trang Configure group size and scaling policies:   Group size - optional  Desired capacity: Nhập 1 (Default) Minimum capacity: Nhập 1 (Default) Maximum capacity: Nhập 3   Scaling policies - optional: Lựa chọn trong bài thực hành này nhằm tạo điều kiện dễ dàng hơn cho bước kiểm tra được thực hiện tiếp theo. Bạn hoàn toàn có thể thiết lập chính sách co dãn theo nhu cầu của bạn.  Chọn Target tracking scaling policy Metric type: Chọn Application Load Balancer request count per target Target group: Chọn target group mà chúng ta đã tạo (VD: sharenote-tg) Target value: Nhập 30    Chọn Next.  12. Ở trang Add notifications, chọn Next. 13. Ở trang Add tags, chọn Next. 14. Ở trang Review, chọn Create Auto Scaling Group\nQuá trình khởi tạo Auto Scaling Group sẽ được thực hiện, Auto Scaling Group vừa tạo sẽ hiển thị trong danh sách. Bạn có thể chọn vào để xem thông tin chi tiết. Auto Scaling Group sẽ triển khai các instance, chúng ta có thể theo dõi ở trang Instance management. Các instance có tình trạng InService là các instance đã sẵn sàng hoạt động.\n"
+},
+{
+	"uri": "/vi/5-load-balance/",
+	"title": "Khởi tạo Load Balancer",
+	"tags": [],
+	"description": "",
+	"content": "Nội dung:\n Tạo Load Balancer  Ở bước này, chúng ta sẽ triển khai Load Balancer điều phối các request từ người dùng đến các Share Note instance cho ứng dụng Share Note của chúng ta.\nTạo Load Balancer Chúng ta bắt đầu khởi tạo Load Balancer như sau:\n Truy cập vào AWS Management Console. Lựa chọn Services ở thanh điều hướng và tìm kiếm dịch vụ EC2. Ở thanh điều hướng bên trái, chọn Load Balancers. Ở trang danh sách Load Balancer, chọn Create Load Balancer. Ở trang Select load balancer type, chọn Create ở mục Application Load Balancer. Ở trang Step 1: Configure Load Balancer, thiết lập các thông số như sau:   Basic Configuration:  Name: Nhập tên của Load Balancer (VD: sharenote-elb) Scheme: internet-facing IP address type: ipv4   Availability Zones:  Availability Zones: Chọn hai AZ tương tự chúng ta đã chọn ở phần trước (VD: ap-northeast-1a và ap-northeast-1c)    Chọn Next: Configure Security Settings  Ở trang Step 2: Configure Security Settings, chọn Next: Configure Security Groups. Ở trang Step 3: Configure Security Groups:  Assign a security group: Chọn Select an existing security group  Chọn Security Group mà bạn lựa chọn (VD: sharenote-sg)     Chọn Next: Configure Routing.  Ở trang Step 4: Configure Routing:  Target group:  Target group: Chọn Existing target group Name: Lựa chọn target group mà chúng ta đã tạo ở bước trước đó (VD: sharenote-tg) (Khi chỉ có một target group, hệ thống sẽ tự động chọn nó)     Chọn Next: Register Targets  Ở trang Step 5: Register Targets, chọn Next: Review. Chọn Create.  Trang tạo Load Balancer thành công sẽ hiển thị ra cho bạn.  Quá trình tạo Load Balancer sẽ mất khoảng 5-10 phút để hoàn thành. Bạn có thể kiểm tra sự thay đổi trạng thái từ provisioning sang active ở danh sách Load Balancer.\nHãy ghi chú lại DNS name của Load Balancer lại vì đây sẽ là địa chỉ chúng ta dùng để truy cập vào ứng dụng dược triển khai.\nĐến đây, chúng ta đã hoàn thành việc triển khai ứng dụng Share Note với Auto Scaling Group và Elastic Load Balancer. Với mô hình này, bạn có thể triển khai ứng dụng của mình với tính sẵn sàng cao, dễ dàng mở rộng và cân bằng tải các yêu cầu từ người dùng.\nỞ bước kế tiếp, chúng ta sẽ thử nghiệm việc mở rộng dựa trên tăng số lượng truy cập đến ứng dụng của chúng ta và xem phản hồi của Auto Scaling Group đối với sự gia tăng này.\n"
+},
+{
+	"uri": "/vi/6-testing/",
+	"title": "Kiểm tra Kết quả",
+	"tags": [],
+	"description": "",
+	"content": "Nội dung:\n Kiểm tra khả năng tự mở rộng của ứng dụng Share Note được triển khai  Trong bài thực hành này, chúng ta sẽ tiến hành tăng số lượng yêu cầu truy cập đến ứng dụng thông qua việc mở đồng loạt nhiều kết nối sử dụng công cụ Webserver Stress Tool 8\nKiểm tra khả năng tự mở rộng của ứng dụng Share Note được triển khai  Kiểm tra số lượng instance hiện có trong Auto Scaling Group là 1.  Tiến hành tạo số lượng truy cập lớn đến Endpoint của Load Balancer.  Sau một khoảng thời gian, kiểm tra phản hồi của Auto Scaling Group. Ta thấy số lượng instance được tăng lên số lượng tối đa mà chúng ta thiết lập là 3.  Kiểm tra truy cập vào ứng dụng từ trình duyệt không bị gián đoạn.  Chúc mừng bạn vừa hoàn thành bài thực hành Triển khai ứng dụng ShareNote với Auto Scaling Group và Elastic Load Balancer.\n"
+},
+{
+	"uri": "/vi/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/vi/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
