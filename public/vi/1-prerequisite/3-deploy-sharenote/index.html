@@ -12,21 +12,21 @@
     <title>Triển khai Máy ảo ShareNote :: Triển khai Ứng dụng ShareNote với Auto Scaling Group</title>
 
     
-    <link href="/css/nucleus.css?1610694416" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1610694416" rel="stylesheet">
-    <link href="/css/hybrid.css?1610694416" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1610694416" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1610694416" rel="stylesheet">
-    <link href="/css/auto-complete.css?1610694416" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1610694416" rel="stylesheet">
-    <link href="/css/theme.css?1610694416" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1610694416" rel="stylesheet">
+    <link href="/css/nucleus.css?1624861632" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1624861632" rel="stylesheet">
+    <link href="/css/hybrid.css?1624861632" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1624861632" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1624861632" rel="stylesheet">
+    <link href="/css/auto-complete.css?1624861632" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1624861632" rel="stylesheet">
+    <link href="/css/theme.css?1624861632" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1624861632" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1610694416" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1624861632" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1610694416"></script>
+    <script src="/js/jquery-3.3.1.min.js?1624861632"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1610694416"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1610694416"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1624861632"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1624861632"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1610694416"></script>
+<script type="text/javascript" src="/js/search.js?1624861632"></script>
 
     
   </div>
@@ -284,13 +284,13 @@
  
   
     
-    <li data-nav-id="/vi/4-asg/" title="Khởi tạo AutoScalingGroup" class="dd-item 
+    <li data-nav-id="/vi/5-load-balance/" title="Khởi tạo Load Balancer" class="dd-item 
         
         
         
         ">
-      <a href="/vi/4-asg/">
-          <b>4. </b>Khởi tạo AutoScalingGroup
+      <a href="/vi/5-load-balance/">
+          <b>4. </b>Khởi tạo Load Balancer
           
             <i class="fas fa-check read-icon"></i>
           
@@ -310,13 +310,13 @@
  
   
     
-    <li data-nav-id="/vi/5-load-balance/" title="Khởi tạo Load Balancer" class="dd-item 
+    <li data-nav-id="/vi/4-asg/" title="Khởi tạo Auto Scaling Group" class="dd-item 
         
         
         
         ">
-      <a href="/vi/5-load-balance/">
-          <b>5. </b>Khởi tạo Load Balancer
+      <a href="/vi/4-asg/">
+          <b>5. </b>Khởi tạo Auto Scaling Group
           
             <i class="fas fa-check read-icon"></i>
           
@@ -343,6 +343,32 @@
         ">
       <a href="/vi/6-testing/">
           <b>6. </b>Kiểm tra Kết quả
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-clean-up/" title="Dọn dẹp tài nguyên" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-clean-up/">
+          <b>7. </b>Dọn dẹp tài nguyên
           
             <i class="fas fa-check read-icon"></i>
           
@@ -391,18 +417,6 @@
               
               
                   
-                    
-                    
-                      <option id="en" value="/1-prerequisite/3-deploy-sharenote/">English</option>
-                    
-                  
-              
-                  
-              
-          
-              
-              
-                  
               
                   
                     
@@ -435,11 +449,11 @@
     <section id="footer">
       <left>
     
-    
-
-    
-
-    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7831210&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
 </left>
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -527,94 +541,87 @@
 
 
 
-	<p><strong>Nội dung:</strong></p>
+	<p>Trong bài thực hành này, chúng ta sẽ thiết lập cấu hình Database cho ShareNote. Sau đó,chúng ta sẽ thiết lập tự động khởi chạy ứng dụng khi khởi chạy Instance.</p>
+
+<div class="notices info" ><p>Nếu bạn đã làm bài số 000005 <a href="https://000005.awsstudygroup.com/vi/">Triển Khai AWS RDS Kết Hơp với ShareNote</a>, bạn có thể thấy rằng bạn đã triển khai ShareNote một cách thủ công. Ở bài này, bạn sẽ thiết lập khởi chạy ứng dụng cho EC2 Instance để mỗi khi một EC2 Instance mới được tạo ra bởi Auto Scaling Group, EC2 Instance đó sẽ tự động được thiết lập để triển khai ứng dụng ShareNote.</p>
+</div>
+
+<p><strong>Nội dung:</strong></p>
 <ul>
 <li><a href="#thi%E1%BA%BFt-l%E1%BA%ADp-c%E1%BA%A5u-h%C3%ACnh-database-cho-sharenote">Thiết lập cấu hình Database cho ShareNote</a></li>
 <li><a href="#thi%E1%BA%BFt-l%E1%BA%ADp-kh%E1%BB%9Fi-ch%E1%BA%A1y-%E1%BB%A9ng-d%E1%BB%A5ng-khi-kh%E1%BB%9Fi-ch%E1%BA%A1y-instance">Thiết lập khởi chạy ứng dụng khi khởi chạy instance</a></li>
 </ul>
-<p>Ứng dụng ShareNote cho phép tạo các ghi chú và chia sẻ cho tất cả các người dùng khác. 
-ShareNote có thể được triển khai dễ dàng trên cả Windows và Linux.<br>
-Để tìm hiểu về triển khai ShareNote, bạn có thể truy cập vào <a href="">Triển khai Ứng dụng ShareNote trên Máy ảo Windows/Ubuntu</a></p>
 
-<div class="notices note" ><p>Trong bài thực hành này, chúng ta sẽ sử dụng instance Ubuntu để triển khai Share Note. Instance này sẽ được triển khai Share Note và được sử dụng cho bước tiếp theo.</p>
+<div class="notices note" ><p>Để vượt qua bài lab này, bạn cần có triển khai sẵn một Ubuntu Instance. Nếu bạn chưa biết cách làm, hãy tham khảo bài <a href="https://000004.awsstudygroup.com/0-getting-started-ec2/1-create-ec2-instance/3-working-with-linux-instance/">Sử dụng Máy ảo Linux</a>. <em>Lưu ý, hãy chọn AMI <strong>Ubuntu Server 20.04 LTS (HVM)</strong> thay vì <strong>Amazon Linux 2 AMI (HVM)</strong>.</em></p>
 </div>
 
 <h4 id="thiết-lập-cấu-hình-database-cho-sharenote">Thiết lập cấu hình Database cho ShareNote</h4>
-<p>Đối với bài thực hành này, chúng ta không sử dụng local database nữa mà thay vào đó là sử dụng dịch vụ Amazon RDS.</p>
-<p>Chúng ta sẽ bắt đầu tạo một đoạn script thiết lập và khởi chạy ứng dụng ShareNote (startup.sh)</p>
+<p>Chúng ta sẽ bắt đầu tạo một đoạn script thiết lập (startup.sh) để khởi chạy ứng dụng ShareNote. Đoạn script startup.sh sẽ được cấu hình để tự động triển khai khi EC2 Instance khởi chạy.</p>
+
+<div class="notices info" ><p>Bạn sẽ sử dụng Vi Editor, một trình soạn thảo văn bản được sử dụng phổ biến trên hệ điều hành Linux/Unix, để viết script thiết lập <em>startup.sh</em>. Bạn có thể tham khảo thêm tại <a href="https://vinasupport.com/huong-dan-su-dung-co-ban-lenh-vi-editor-tren-linux/"><strong>link</strong></a> này hoặc tự tìm hiểu.</p>
+</div>
+
 <ol>
-<li>Kết nối đến Ubuntu instance đã được khởi tạo.</li>
-<li>Từ cửa sổ dòng lệnh, nhập lệnh sau để tạo tập tin chứa script (đường dẫn có thể thay đổi)</li>
-</ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo vi /etc/init.d/startup.sh
-</code></pre></div><ol start="3">
-<li>Nhập nội dung script và các thông tin của bạn vào tập tin.</li>
-</ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export MYSQL_HOST<span style="color:#f92672">=</span>sharenote-rds.cxm2fv9obino.ap-northeast-1.rds.amazonaws.com
+<li>
+<p>Kết nối đến Ubuntu instance đã được khởi tạo.</p>
+</li>
+<li>
+<p>Từ cửa sổ dòng lệnh, nhập lệnh sau để tạo tập tin chứa script bằng <strong>vi editor</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo vi /etc/init.d/startup.sh
+</code></pre></div></li>
+<li>
+<p>Nhấn phím <strong>i</strong> rồi nhập nội dung script như sau:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Cập nhật Ubuntu Instane và cài đặt JRE</span>
+sudo apt update
+sudo apt install openjdk-8-jre-headless
+
+<span style="color:#75715e"># Thiết lập cấu hình Database cho ShareNote</span>
+export MYSQL_HOST<span style="color:#f92672">=</span>&lt;Replace with your DB Isntance Endpoint&gt;
 export MYSQL_DATABASE<span style="color:#f92672">=</span>NoteDB
 export MYSQL_USER<span style="color:#f92672">=</span>admin
-export MYSQL_PASSWORD<span style="color:#f92672">=</span>*Replace with your password*
+export MYSQL_PASSWORD<span style="color:#f92672">=</span>&lt;Replace with your password&gt;
 
+<span style="color:#75715e"># Tải xuống và khởi chạy ứng dụng ShareNote.</span>
 wget <span style="color:#e6db74">&#34;https://example-corp-storage.s3.amazonaws.com/deploy-artifact/demo-0.0.1-SNAPSHOT.jar&#34;</span> -O demo-0.0.1-SNAPSHOT.jar
 java -jar demo-0.0.1-SNAPSHOT.jar &amp;
-</code></pre></div><ol start="4">
-<li>Lưu tập tin lại với <code>:wq</code> trong <strong>vi editor</strong>.</li>
-<li>Thiết lập thuộc tính cho script mà chúng ta vừa viết.</li>
+</code></pre></div></li>
+<li>
+<p>Nhấn phím <strong>ESC</strong> rồi gõ <code>:wq</code> để lưu lại script và thoát ra ngoài.</p>
+</li>
+<li>
+<p>Thiết lập thuộc tính của script để bạn có kích hoạt được (<em>executable</em>) bằng lệnh:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo chmod +x /etc/init.d/startup.sh
+</code></pre></div></li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo chmod +x /etc/init.d/startup.sh
-</code></pre></div>
-<section class="attachments blue">
-	<label>
-		<i class="fas fa-paperclip" aria-hidden="true"></i>
-		Related files
-	</label>
-	
-		
-	
-	<div class="attachments-files">
-	
-		
-		
-			
-				<li>
-					<a href="/1-prerequisite/3-deploy-sharenote/_index.vi.files/startup.sh" >
-						startup.sh
-					</a>
-					(0 ko)
-				</li>
-			
-		
-	
-	<div>
-	
-</section>
-
-
 <p>Dựa vào đoạn mã trên, chúng ta thấy:</p>
 <ul>
-<li>MYSQL_HOST:   Chứa thông tin <strong>Endpoint</strong> của Database mà chúng ta đã tạo ở phần trước.</li>
-<li>MYSQL_DATABASE:   Là <strong>tên database</strong> được khởi tạo trong quá trình tạo database instance ở phần trước.</li>
-<li>MYSQL_USER:   User mặc định khi khởi tạo.</li>
-<li>MYSQL_PASSWORD:   Mật khẩu được đặt cho user admin.</li>
+<li><strong>MYSQL_HOST</strong>: Chứa thông tin <strong>Endpoint</strong> của DB Instance mà chúng ta đã tạo ở phần trước. (Ví dụ: <em>sharenote-db.caslv76qrmsi.ap-southeast-1.rds.amazonaws.com</em>)</li>
+<li><strong>MYSQL_DATABASE</strong>: Là tên của Database được khởi tạo trong quá trình tạo DB instance ở phần trước. (Ví dụ: <em>NoteDB</em>)</li>
+<li><strong>MYSQL_USER</strong>: User mặc định khi khởi tạo. (Ví dụ: <em>admin</em>)</li>
+<li><strong>MYSQL_PASSWORD</strong>: Mật khẩu được đặt cho user admin (Ví dụ: <em>admin123</em>)
+<img src="../../../images/1/1.3_ViEditor.png?width=90pc" alt="ShareNote"></li>
 </ul>
-<p><img src="../../../images/1/6.png?width=90pc" alt="ShareNote"></p>
-<p>Bạn có thể khởi chạy thử bằng việc chạy đoạn mã trên. Share Note sẽ được khởi chạy và kết nối đến Database và chúng ta có thể truy cập ngay lập tức ở localhost.</p>
+<ol start="6">
+<li>Bạn có thể kiểm tra script thiết lập của mình bằng cách khởi chạy thử nó với dòng lệnh dưới đây:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">. /etc/init.d/startup.sh
+</code></pre></div></li>
+<li>ShareNote sẽ được khởi chạy và kết nối đến Database như hình sau.
+<img src="../../../images/1/1.3_Success.png?width=90pc" alt="Success"></li>
+</ol>
 <h4 id="thiết-lập-khởi-chạy-ứng-dụng-khi-khởi-chạy-instance">Thiết lập khởi chạy ứng dụng khi khởi chạy instance</h4>
-<p>Trên Ubuntu, chúng ta có thể thiết lập hệ thống khởi chạy đoạn script khởi chạy Share Note khi instance được Start.</p>
+<p>Trên Ubuntu, chúng ta có thể thiết lập hệ thống để nó tự động triển khai đoạn script khi EC2 Instance được khởi chạy.</p>
 <ol>
 <li>Kết nối đến Ubuntu instance đã được khởi tạo.</li>
-<li>Chạy lệnh sau để mở thiết lập crontab và thiết lập việc khởi chạy ứng dụng khi instance được khởi chạy.</li>
-</ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ crontab -e
-</code></pre></div><ol start="3">
-<li>Nhập nội dung sau vào cuối các nội dung (đường dẫn đến tập tin script có thể khác và bạn cần thay đổi để phù hợp) để thiết lập khởi chạy script khi khởi động.</li>
-</ol>
+<li>Chạy lệnh sau để mở thiết lập crontab và thiết lập việc khởi chạy ứng dụng khi instance được khởi chạy.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">crontab -e
+</code></pre></div></li>
+<li>Trong phần chọn editor (<em>select editor</em>), gõ số 2 rồi nhấn phím <strong>Enter</strong> để chọn <strong>/user/bin/vim.basic</strong></li>
+<li>Nhấn phím <strong>i</strong> để có thể chỉnh sửa rồi nhập nội dung sau vào cuối các nội dung để thiết lập tự động triển khai script khi khởi động.
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">@reboot /etc/init.d/startup.sh
-</code></pre></div><ol start="4">
-<li>Nhấn tổ hợp phím <code>Ctr + X</code> để thoát và <code>Y</code> để đồng ý lưu thay đổi cho crontab.
-<img src="../../../images/1/7.png?width=90pc" alt="ShareNote"></li>
+</code></pre></div></li>
+<li>Khi nhập xong, nhấn phím <strong>ESC</strong> rồi gõ <code>:wq</code> để lưu lại script và thoát ra ngoài crontab.
+<img src="../../../images/1/1.3_Reboot.png?width=90pc" alt="ShareNote"></li>
 </ol>
-<p>Bạn có thể kiểm tra bằng việc khởi động lại instance.</p>
 
 
 
@@ -820,6 +827,22 @@ java -jar demo-0.0.1-SNAPSHOT.jar &amp;
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
         
@@ -842,19 +865,19 @@ java -jar demo-0.0.1-SNAPSHOT.jar &amp;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1610694416"></script>
-    <script src="/js/perfect-scrollbar.min.js?1610694416"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1610694416"></script>
-    <script src="/js/jquery.sticky.js?1610694416"></script>
-    <script src="/js/featherlight.min.js?1610694416"></script>
-    <script src="/js/highlight.pack.js?1610694416"></script>
+    <script src="/js/clipboard.min.js?1624861632"></script>
+    <script src="/js/perfect-scrollbar.min.js?1624861632"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1624861632"></script>
+    <script src="/js/jquery.sticky.js?1624861632"></script>
+    <script src="/js/featherlight.min.js?1624861632"></script>
+    <script src="/js/highlight.pack.js?1624861632"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1610694416"></script>
-    <script src="/js/learn.js?1610694416"></script>
-    <script src="/js/hugo-learn.js?1610694416"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1624861632"></script>
+    <script src="/js/learn.js?1624861632"></script>
+    <script src="/js/hugo-learn.js?1624861632"></script>
 
-    <link href="/mermaid/mermaid.css?1610694416" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1610694416"></script>
+    <link href="/mermaid/mermaid.css?1624861632" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1624861632"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

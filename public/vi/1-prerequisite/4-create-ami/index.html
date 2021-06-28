@@ -12,21 +12,21 @@
     <title>Khởi tạo AMI từ Máy ảo :: Triển khai Ứng dụng ShareNote với Auto Scaling Group</title>
 
     
-    <link href="/css/nucleus.css?1610694416" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1610694416" rel="stylesheet">
-    <link href="/css/hybrid.css?1610694416" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1610694416" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1610694416" rel="stylesheet">
-    <link href="/css/auto-complete.css?1610694416" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1610694416" rel="stylesheet">
-    <link href="/css/theme.css?1610694416" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1610694416" rel="stylesheet">
+    <link href="/css/nucleus.css?1624861632" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1624861632" rel="stylesheet">
+    <link href="/css/hybrid.css?1624861632" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1624861632" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1624861632" rel="stylesheet">
+    <link href="/css/auto-complete.css?1624861632" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1624861632" rel="stylesheet">
+    <link href="/css/theme.css?1624861632" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1624861632" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1610694416" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1624861632" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1610694416"></script>
+    <script src="/js/jquery-3.3.1.min.js?1624861632"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1610694416"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1610694416"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1624861632"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1624861632"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1610694416"></script>
+<script type="text/javascript" src="/js/search.js?1624861632"></script>
 
     
   </div>
@@ -284,13 +284,13 @@
  
   
     
-    <li data-nav-id="/vi/4-asg/" title="Khởi tạo AutoScalingGroup" class="dd-item 
+    <li data-nav-id="/vi/5-load-balance/" title="Khởi tạo Load Balancer" class="dd-item 
         
         
         
         ">
-      <a href="/vi/4-asg/">
-          <b>4. </b>Khởi tạo AutoScalingGroup
+      <a href="/vi/5-load-balance/">
+          <b>4. </b>Khởi tạo Load Balancer
           
             <i class="fas fa-check read-icon"></i>
           
@@ -310,13 +310,13 @@
  
   
     
-    <li data-nav-id="/vi/5-load-balance/" title="Khởi tạo Load Balancer" class="dd-item 
+    <li data-nav-id="/vi/4-asg/" title="Khởi tạo Auto Scaling Group" class="dd-item 
         
         
         
         ">
-      <a href="/vi/5-load-balance/">
-          <b>5. </b>Khởi tạo Load Balancer
+      <a href="/vi/4-asg/">
+          <b>5. </b>Khởi tạo Auto Scaling Group
           
             <i class="fas fa-check read-icon"></i>
           
@@ -343,6 +343,32 @@
         ">
       <a href="/vi/6-testing/">
           <b>6. </b>Kiểm tra Kết quả
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-clean-up/" title="Dọn dẹp tài nguyên" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-clean-up/">
+          <b>7. </b>Dọn dẹp tài nguyên
           
             <i class="fas fa-check read-icon"></i>
           
@@ -435,11 +461,11 @@
     <section id="footer">
       <left>
     
-    
-
-    
-
-    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7831210&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
 </left>
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -527,19 +553,18 @@
 
 
 
-	<p><strong>Nội dung:</strong></p>
+	<p>Ở bước này, bạn sẽ khởi tạo một <strong>Amazon Machine Image (AMI)</strong> cho Ubuntu Instance vừa được thiết lập ở bước trước. <strong>AMI</strong> là một bản chụp cấu hình của EC2 Instance cho phép bạn triển khai nhiều EC2 Instance với cấu hình tương tự với EC2 Instance gốc. <strong>AMI</strong> thường được sử dụng bên trong <strong>Launch Template</strong> để tạo khuôn mẫu cho các EC2 Instances.</p>
+<p><strong>Nội dung:</strong></p>
 <ul>
 <li><a href="#kh%E1%BB%9Fi-t%E1%BA%A1o-ami-t%E1%BB%AB-m%C3%A1y-%E1%BA%A3o">Khởi tạo AMI từ Máy ảo</a></li>
 </ul>
-<p>Trong bước này, để triển khai trên Auto Scaling Group, chúng ta sẽ bắt đầu tạo một AMI chứa thiết lập và ứng dụng ShareNote.</p>
 <h4 id="khởi-tạo-ami-từ-máy-ảo">Khởi tạo AMI từ Máy ảo</h4>
-<p>Để khởi tạo AMI từ instance, chúng ta thực hiện các bước:</p>
 <ol>
 <li>Truy cập vào <strong>EC2 Management Console</strong>. Chọn <strong>Instances</strong>.</li>
 <li>Trong danh sách instance, chọn Ubuntu instance mà chúng ta đã thiết lập ở phần trước.</li>
 <li>Chọn menu <strong>Actions</strong>.</li>
 <li>Trong <strong>Image and templates</strong>, chọn <strong>Create image</strong>.
-<img src="../../../images/1/8.png?width=90pc" alt="AMI"></li>
+<img src="../../../images/1/1.4_CreateAMI.png?width=90pc" alt="AMI"></li>
 <li>Ở trang <strong>Create image</strong>, thiết lập các thông tin cho AMI như sau:
 <ul>
 <li>Image name: Nhập tên AMI (VD: sharenote-image)</li>
@@ -547,11 +572,10 @@
 </ul>
 </li>
 <li>Chọn <strong>Create image</strong>.</li>
-<li>AMI sẽ bắt đầu được khởi tạo và chúng ta có thể kiểm tra AMI trong mục <strong>Images &gt; AMIs</strong> ở thanh điều hướng bên tay trái.</li>
-<li>Đợi cho <strong>Status</strong> chuyển thành <code>available</code> thì AMI đã sẵn sàng để sử dụng.
-<img src="../../../images/1/9.png?width=90pc" alt="AMI"></li>
+<li>AMI sẽ bắt đầu được khởi tạo và chúng ta có thể kiểm tra AMI bằng cách chọn <strong>AMIs</strong> ở thanh điều hướng bên tay trái.</li>
+<li>Đợi cho <strong>Status</strong> chuyển thành <strong>Available</strong> thì AMI đã sẵn sàng để sử dụng.</li>
 </ol>
-<p>Đến đây, chúng ta đã hoàn thành các bước chuẩn bị cho việc triển khai Share Note với Auto Scaling Group.</p>
+<p>Đến đây, chúng ta đã hoàn thành các bước chuẩn bị cho việc triển khai ShareNote với Auto Scaling Group.</p>
 <p>Ở phần kế tiếp, chúng ta sẽ bắt đầu khởi tạo và triển khai nội dung chính của bài thực hành này.</p>
 
 
@@ -758,6 +782,22 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
         
@@ -780,19 +820,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1610694416"></script>
-    <script src="/js/perfect-scrollbar.min.js?1610694416"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1610694416"></script>
-    <script src="/js/jquery.sticky.js?1610694416"></script>
-    <script src="/js/featherlight.min.js?1610694416"></script>
-    <script src="/js/highlight.pack.js?1610694416"></script>
+    <script src="/js/clipboard.min.js?1624861632"></script>
+    <script src="/js/perfect-scrollbar.min.js?1624861632"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1624861632"></script>
+    <script src="/js/jquery.sticky.js?1624861632"></script>
+    <script src="/js/featherlight.min.js?1624861632"></script>
+    <script src="/js/highlight.pack.js?1624861632"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1610694416"></script>
-    <script src="/js/learn.js?1610694416"></script>
-    <script src="/js/hugo-learn.js?1610694416"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1624861632"></script>
+    <script src="/js/learn.js?1624861632"></script>
+    <script src="/js/hugo-learn.js?1624861632"></script>
 
-    <link href="/mermaid/mermaid.css?1610694416" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1610694416"></script>
+    <link href="/mermaid/mermaid.css?1624861632" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1624861632"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

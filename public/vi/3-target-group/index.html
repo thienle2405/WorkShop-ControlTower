@@ -12,21 +12,21 @@
     <title>Khởi tạo Target Group :: Triển khai Ứng dụng ShareNote với Auto Scaling Group</title>
 
     
-    <link href="/css/nucleus.css?1610694416" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1610694416" rel="stylesheet">
-    <link href="/css/hybrid.css?1610694416" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1610694416" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1610694416" rel="stylesheet">
-    <link href="/css/auto-complete.css?1610694416" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1610694416" rel="stylesheet">
-    <link href="/css/theme.css?1610694416" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1610694416" rel="stylesheet">
+    <link href="/css/nucleus.css?1624861632" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1624861632" rel="stylesheet">
+    <link href="/css/hybrid.css?1624861632" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1624861632" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1624861632" rel="stylesheet">
+    <link href="/css/auto-complete.css?1624861632" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1624861632" rel="stylesheet">
+    <link href="/css/theme.css?1624861632" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1624861632" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1610694416" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1624861632" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1610694416"></script>
+    <script src="/js/jquery-3.3.1.min.js?1624861632"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1610694416"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1610694416"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1624861632"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1624861632"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1610694416"></script>
+<script type="text/javascript" src="/js/search.js?1624861632"></script>
 
     
   </div>
@@ -284,13 +284,13 @@
  
   
     
-    <li data-nav-id="/vi/4-asg/" title="Khởi tạo AutoScalingGroup" class="dd-item 
+    <li data-nav-id="/vi/5-load-balance/" title="Khởi tạo Load Balancer" class="dd-item 
         
         
         
         ">
-      <a href="/vi/4-asg/">
-          <b>4. </b>Khởi tạo AutoScalingGroup
+      <a href="/vi/5-load-balance/">
+          <b>4. </b>Khởi tạo Load Balancer
           
             <i class="fas fa-check read-icon"></i>
           
@@ -310,13 +310,13 @@
  
   
     
-    <li data-nav-id="/vi/5-load-balance/" title="Khởi tạo Load Balancer" class="dd-item 
+    <li data-nav-id="/vi/4-asg/" title="Khởi tạo Auto Scaling Group" class="dd-item 
         
         
         
         ">
-      <a href="/vi/5-load-balance/">
-          <b>5. </b>Khởi tạo Load Balancer
+      <a href="/vi/4-asg/">
+          <b>5. </b>Khởi tạo Auto Scaling Group
           
             <i class="fas fa-check read-icon"></i>
           
@@ -343,6 +343,32 @@
         ">
       <a href="/vi/6-testing/">
           <b>6. </b>Kiểm tra Kết quả
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-clean-up/" title="Dọn dẹp tài nguyên" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-clean-up/">
+          <b>7. </b>Dọn dẹp tài nguyên
           
             <i class="fas fa-check read-icon"></i>
           
@@ -435,11 +461,11 @@
     <section id="footer">
       <left>
     
-    
-
-    
-
-    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7831210&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
 </left>
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -521,14 +547,15 @@
 
 
 
-	<p><strong>Nội dung:</strong></p>
+	<p>Ở phần này, bạn sẽ tạo một Target Group để làm mục tiêu Load Balancer truyển tải lưu lượng dữ liệu tới.</p>
+<p><strong>Nội dung:</strong></p>
 <ul>
 <li><a href="#t%E1%BA%A1o-target-group">Tạo Target Group</a></li>
 </ul>
 <h4 id="tạo-target-group">Tạo Target Group</h4>
 <p>Để tạo Launch Template, chúng ta thực hiện như sau:</p>
 <ol>
-<li>Truy cập vào <strong>AWS Management Console</strong>. Lựa chọn <strong>Services</strong> ở thanh điều hướng và tìm kiếm dịch vụ <strong>EC2</strong>.</li>
+<li>Truy cập vào <strong>EC2 Management Console</strong>.</li>
 <li>Ở thanh điều hướng bên trái, chọn <strong>Target Groups</strong>.</li>
 <li>Ở trang <strong>Target groups</strong>, chọn <strong>Create launch template</strong>.</li>
 <li>Ở trang <strong>Specify group details</strong>, thiết lập các thông số như sau cho target group:
@@ -541,17 +568,16 @@
 <li>Port: <strong>8080</strong> (Port sử dụng bởi ShareNote)</li>
 </ul>
 </li>
+<li>Các mục còn lại để mặc định</li>
 </ul>
 </li>
 <li>Chọn <strong>Next</strong>.</li>
 </ol>
-<p><img src="../../../images/3/1.png?width=90pc" alt="Target Group"></p>
+<p><img src="../../../images/3/3_RegisterTargets.png?width=90pc" alt="Target Group"></p>
 <ol start="6">
 <li>Ở trang <strong>Register targets</strong>, chọn <strong>Create target group</strong>.</li>
 </ol>
 <p>Danh sách target group sẽ liệt kê target group mà chúng ta vừa tạo trong danh sách.</p>
-<p><img src="../../../images/3/2.png?width=90pc" alt="Target Group"></p>
-<p>Chúng ta đã hoàn thành việc tạo target group.</p>
 
 
 
@@ -756,6 +782,22 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
         
@@ -768,7 +810,7 @@
 			<a class="nav nav-prev" href="/vi/2-launch-template/" title="Khởi tạo Launch Template"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vi/4-asg/" title="Khởi tạo AutoScalingGroup" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/5-load-balance/" title="Khởi tạo Load Balancer" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -778,19 +820,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1610694416"></script>
-    <script src="/js/perfect-scrollbar.min.js?1610694416"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1610694416"></script>
-    <script src="/js/jquery.sticky.js?1610694416"></script>
-    <script src="/js/featherlight.min.js?1610694416"></script>
-    <script src="/js/highlight.pack.js?1610694416"></script>
+    <script src="/js/clipboard.min.js?1624861632"></script>
+    <script src="/js/perfect-scrollbar.min.js?1624861632"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1624861632"></script>
+    <script src="/js/jquery.sticky.js?1624861632"></script>
+    <script src="/js/featherlight.min.js?1624861632"></script>
+    <script src="/js/highlight.pack.js?1624861632"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1610694416"></script>
-    <script src="/js/learn.js?1610694416"></script>
-    <script src="/js/hugo-learn.js?1610694416"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1624861632"></script>
+    <script src="/js/learn.js?1624861632"></script>
+    <script src="/js/hugo-learn.js?1624861632"></script>
 
-    <link href="/mermaid/mermaid.css?1610694416" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1610694416"></script>
+    <link href="/mermaid/mermaid.css?1624861632" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1624861632"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

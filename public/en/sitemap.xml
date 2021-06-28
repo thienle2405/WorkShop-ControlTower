@@ -4,7 +4,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
@@ -93,18 +93,8 @@
   </url>
   
   <url>
-    <loc>/1-prerequisite/3-deploy-sharenote/</loc>
+    <loc>/1-prerequisite/3-deploy-sharenote/_index.vi-copy/</loc>
     <lastmod>1970-01-01T07:33:40+07:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/1-prerequisite/3-deploy-sharenote/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/1-prerequisite/3-deploy-sharenote/"
-                />
   </url>
   
   <url>
@@ -119,21 +109,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="/1-prerequisite/4-create-ami/"
-                />
-  </url>
-  
-  <url>
-    <loc>/4-asg/</loc>
-    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/4-asg/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/4-asg/"
                 />
   </url>
   
@@ -153,6 +128,21 @@
   </url>
   
   <url>
+    <loc>/4-asg/</loc>
+    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/4-asg/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/4-asg/"
+                />
+  </url>
+  
+  <url>
     <loc>/6-testing/</loc>
     <lastmod>1970-01-01T07:33:40+07:00</lastmod>
     <xhtml:link
@@ -164,6 +154,21 @@
                 rel="alternate"
                 hreflang="en"
                 href="/6-testing/"
+                />
+  </url>
+  
+  <url>
+    <loc>/7-clean-up/</loc>
+    <lastmod>2021-06-08T18:57:03+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/7-clean-up/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/7-clean-up/"
                 />
   </url>
   

@@ -12,21 +12,21 @@
     <title>Tạo Security Group :: Triển khai Ứng dụng ShareNote với Auto Scaling Group</title>
 
     
-    <link href="/css/nucleus.css?1610694416" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1610694416" rel="stylesheet">
-    <link href="/css/hybrid.css?1610694416" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1610694416" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1610694416" rel="stylesheet">
-    <link href="/css/auto-complete.css?1610694416" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1610694416" rel="stylesheet">
-    <link href="/css/theme.css?1610694416" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1610694416" rel="stylesheet">
+    <link href="/css/nucleus.css?1624861632" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1624861632" rel="stylesheet">
+    <link href="/css/hybrid.css?1624861632" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1624861632" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1624861632" rel="stylesheet">
+    <link href="/css/auto-complete.css?1624861632" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1624861632" rel="stylesheet">
+    <link href="/css/theme.css?1624861632" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1624861632" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1610694416" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1624861632" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1610694416"></script>
+    <script src="/js/jquery-3.3.1.min.js?1624861632"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1610694416"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1610694416"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1624861632"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1624861632"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1610694416"></script>
+<script type="text/javascript" src="/js/search.js?1624861632"></script>
 
     
   </div>
@@ -284,13 +284,13 @@
  
   
     
-    <li data-nav-id="/vi/4-asg/" title="Khởi tạo AutoScalingGroup" class="dd-item 
+    <li data-nav-id="/vi/5-load-balance/" title="Khởi tạo Load Balancer" class="dd-item 
         
         
         
         ">
-      <a href="/vi/4-asg/">
-          <b>4. </b>Khởi tạo AutoScalingGroup
+      <a href="/vi/5-load-balance/">
+          <b>4. </b>Khởi tạo Load Balancer
           
             <i class="fas fa-check read-icon"></i>
           
@@ -310,13 +310,13 @@
  
   
     
-    <li data-nav-id="/vi/5-load-balance/" title="Khởi tạo Load Balancer" class="dd-item 
+    <li data-nav-id="/vi/4-asg/" title="Khởi tạo Auto Scaling Group" class="dd-item 
         
         
         
         ">
-      <a href="/vi/5-load-balance/">
-          <b>5. </b>Khởi tạo Load Balancer
+      <a href="/vi/4-asg/">
+          <b>5. </b>Khởi tạo Auto Scaling Group
           
             <i class="fas fa-check read-icon"></i>
           
@@ -343,6 +343,32 @@
         ">
       <a href="/vi/6-testing/">
           <b>6. </b>Kiểm tra Kết quả
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-clean-up/" title="Dọn dẹp tài nguyên" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-clean-up/">
+          <b>7. </b>Dọn dẹp tài nguyên
           
             <i class="fas fa-check read-icon"></i>
           
@@ -435,11 +461,11 @@
     <section id="footer">
       <left>
     
-    
-
-    
-
-    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7831210&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
 </left>
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -527,14 +553,14 @@
 
 
 
-	<p><strong>Nội dung:</strong></p>
+	<p>Chúng ta sẽ bắt đầu bằng việc tạo một Security Group cho tất cả các thành phần trong <a href="../"><strong>kiến trúc</strong></a> của bài lab này.</p>
+<p><strong>Nội dung:</strong></p>
 <ul>
 <li><a href="#t%E1%BA%A1o-security-group">Tạo Security Group</a></li>
 </ul>
-<p>Chúng ta sẽ bắt đầu với việc tạo một Security Group cho bài thực hành này.</p>
 <p>Để xác định các rule Inbound cần có, chúng ta liệt kê ra các yêu cầu như sau:</p>
 <ul>
-<li>Người dùng truy cập từ ngoài vào ứng dụng Share Note thông qua cổng 80 với giao thức HTTP với Source IP bất kì.</li>
+<li>Người dùng truy cập từ ngoài vào ứng dụng ShareNote thông qua cổng 80 bằng giao thức HTTP với Source IP bất kì.</li>
 <li>Load Balancer sẽ điều phối các yêu cầu này đến các server thông qua cổng 8080 với Source IP trong VPC.</li>
 <li>Các Application server sẽ giao tiếp với Database thông qua cổng 3306 với Source IP trong VPC.</li>
 <li>Chúng ta sẽ mở truy cập SSH để có thể kết nối đến instance để triển khai ứng dụng.</li>
@@ -544,33 +570,38 @@
 </div>
 
 <h4 id="tạo-security-group">Tạo Security Group</h4>
-<p>Dựa vào đó, chúng ta bắt đầu tạo Security Group theo các bước như sau:</p>
 <ol>
-<li>Truy cập vào <strong>AWS Management Console</strong>. Lựa chọn <strong>Services</strong> ở thanh điều hướng và tìm kiếm dịch vụ <strong>EC2</strong>.</li>
+<li>Truy cập vào <strong>EC2 Management Console</strong> bằng cách gõ và chọn dịch vụ <strong>EC2</strong> trong thanh tìm kiếm.
+<img src="../../../images/1/1.1_FindEC2.png?width=90pc" alt="Find EC2"></li>
 <li>Ở thanh điều hướng bên trái, chọn <strong>Security Groups</strong>.</li>
 <li>Ở trang <strong>Security Groups</strong>, chọn <strong>Create Security Group</strong>.</li>
 <li>Ở trang <strong>Create security group</strong>, thiết lập các thông số như sau:
 <ul>
-<li>Basic details:
+<li>Mục <strong>Basic details</strong>:
 <ul>
 <li>Security group name: Nhập vào tên security group (VD: <strong>sharenote-sg</strong>)</li>
 <li>Description: Nhập vào diễn giải của security group.</li>
+<li>VPC: Chọn Default VPC. <em>Bạn sẽ xây dựng bài lab này bên trong Default VPC</em>.
+
+<div class="notices note" ><p>Trên thực tế, AWS khuyến cáo rằng bạn không không nên sử dụng Default VPC cho mục dích sản xuất. Tuy nhiên, bạn sẽ sử dụng Default VPC để được thuận tiện trong khuôn khổ bài thực hành này.</p>
+</div>
+</li>
 </ul>
 </li>
-<li>Inbound rules: Thêm các <strong>Inbound rule</strong> như đề cập ở trên. Chọn <strong>Add rule</strong> để thêm một rule.
+<li>Mục <strong>Inbound rules</strong>: Thêm các <strong>Inbound rule</strong> như đề cập ở trên. Chọn <strong>Add rule</strong> để thêm một rule.
 <ul>
 <li>Type: <strong>HTTP</strong> | Source: <strong>Anywhere</strong></li>
-<li>Type: <strong>Custom TCP</strong> | Port range: <strong>8080</strong> | Source: Custom <strong>172.31.0.0/16</strong> (VPC CIDR block)</li>
-<li>Type: <strong>MySQL/Aurora</strong> | Source: Custom <strong>172.31.0.0/16</strong> (VPC CIDR block)</li>
+<li>Type: <strong>Custom TCP</strong> | Port range: <strong>8080</strong> | Source: Custom <strong>172.31.0.0/16</strong> (Default VPC CIDR block)</li>
+<li>Type: <strong>MySQL/Aurora</strong> | Source: Custom <strong>172.31.0.0/16</strong> (Default VPC CIDR block)</li>
 <li>Type: <strong>SSH</strong> | Source: <strong>My IP</strong>
-<img src="../../../images/1/1.png?width=90pc" alt="Security Group"></li>
+<img src="../../../images/1/1.1_ConfigureSG.png?width=90pc" alt="Security Group"></li>
 </ul>
 </li>
 </ul>
 </li>
 <li>Chọn <strong>Create security group</strong>.</li>
 </ol>
-<p>Chúng ta đã hoàn thành việc tạo Security Group.</p>
+<p>Đến đây, chúng ta đã hoàn thành việc tạo Security Group.</p>
 
 
 
@@ -773,6 +804,22 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
         
@@ -795,19 +842,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1610694416"></script>
-    <script src="/js/perfect-scrollbar.min.js?1610694416"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1610694416"></script>
-    <script src="/js/jquery.sticky.js?1610694416"></script>
-    <script src="/js/featherlight.min.js?1610694416"></script>
-    <script src="/js/highlight.pack.js?1610694416"></script>
+    <script src="/js/clipboard.min.js?1624861632"></script>
+    <script src="/js/perfect-scrollbar.min.js?1624861632"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1624861632"></script>
+    <script src="/js/jquery.sticky.js?1624861632"></script>
+    <script src="/js/featherlight.min.js?1624861632"></script>
+    <script src="/js/highlight.pack.js?1624861632"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1610694416"></script>
-    <script src="/js/learn.js?1610694416"></script>
-    <script src="/js/hugo-learn.js?1610694416"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1624861632"></script>
+    <script src="/js/learn.js?1624861632"></script>
+    <script src="/js/hugo-learn.js?1624861632"></script>
 
-    <link href="/mermaid/mermaid.css?1610694416" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1610694416"></script>
+    <link href="/mermaid/mermaid.css?1624861632" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1624861632"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
