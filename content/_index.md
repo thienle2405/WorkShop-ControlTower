@@ -15,7 +15,7 @@ Thêm vào đó, chúng ta cũng sẽ triển khai **Load Balancer** nhằm cân
 Hãy chắc chắn rằng bạn đã xem qua tài liệu [Triển khai Ứng dụng ShareNote trên Máy ảo Windows/AmazonLinux](https://000004.awsstudygroup.com/) và nắm được cách triển khai ứng dụng trên máy ảo. Chúng ta sẽ cần sử dụng máy ảo được triển khai ShareNote cho việc triển khai đồng loạt và mở rộng trong Auto Scaling Group.
 
 #### Auto Scaling Group
-**Auto Scaling Group** (*nhóm co giãn tự động*) là một nhóm các EC2 Instance. Nhóm này có thể co giãn số lượng và kích cỡ của các EC2 Instance thành viên theo **chính sách co giãn** (*scaling policy*) mà bạn đặt ra.
+**Auto Scaling Group** (*nhóm co giãn tự động*) là một nhóm các EC2 Instance. Nhóm này có thể co giãn số lượng của các EC2 Instance thành viên theo **chính sách co giãn** (*scaling policy*) mà bạn đặt ra.
 
 #### Launch Template
 **Launch Template** (*khuôn mẫu khởi tạo*) là một tính năng giúp bạn tạo khuôn mẫu cho việc khởi tạo các EC2 Instance. Nhờ thế, bạn có thể quy trình hóa và đơn giản hóa công tác khởi tạo các EC2 Instance cho dịch vụ **Auto Scaling** (*co giãn tự động*).
