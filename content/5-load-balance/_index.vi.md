@@ -13,7 +13,7 @@ pre = "<b>4. </b>"
 
 #### Tạo Load Balancer
 
-1. Truy cập vào **EC Management Console**.
+1. Truy cập vào **EC2 Management Console**.
 2. Ở thanh điều hướng bên trái, chọn **Load Balancers**.
 3. Ở trang danh sách Load Balancer, chọn **Create Load Balancer**.
 4. Ở trang **Select load balancer type**, chọn **Create** ở mục **Application Load Balancer**.

@@ -1,6 +1,6 @@
 +++
 title = "Khởi tạo Target Group"
-date = 2020
+date = 2021
 weight = 3
 chapter = false
 pre = "<b>3. </b>"
@@ -13,10 +13,10 @@ pre = "<b>3. </b>"
 
 #### Tạo Target Group
 
-Để tạo Launch Template, chúng ta thực hiện như sau:
+Để tạo Target Group, chúng ta thực hiện như sau:
 1. Truy cập vào **EC2 Management Console**.
 2. Ở thanh điều hướng bên trái, chọn **Target Groups**.
-3. Ở trang **Target groups**, chọn **Create launch template**.
+3. Ở trang **Target groups**, chọn **Create Target Group**.
 4. Ở trang **Specify group details**, thiết lập các thông số như sau cho target group:
    - Basic configuration:
      - Choose a target type: Chọn **Instances**
