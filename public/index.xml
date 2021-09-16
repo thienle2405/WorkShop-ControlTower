@@ -10,15 +10,5 @@
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
-    <item>
-      <title>Triển khai Máy ảo ShareNote</title>
-      <link>/1-prerequisite/3-deploy-sharenote/_index.vi-copy/</link>
-      <pubDate>Thu, 01 Jan 1970 07:33:40 +0700</pubDate>
-      
-      <guid>/1-prerequisite/3-deploy-sharenote/_index.vi-copy/</guid>
-      <description>Trong bài thực hành này, chúng ta sẽ thiết lập cấu hình Database cho ShareNote. Sau đó,chúng ta sẽ thiết lập tự động khởi chạy ứng dụng khi khởi chạy Instance.
-Nếu bạn đã làm bài số 000005 Triển Khai AWS RDS Kết Hơp với ShareNote, bạn có thể thấy rằng bạn đã triển khai ShareNote một cách thủ công. Ở bài này, bạn sẽ thiết lập khởi chạy ứng dụng cho EC2 Instance để mỗi khi một EC2 Instance mới được tạo ra bởi Auto Scaling Group, EC2 Instance đó sẽ tự động được thiết lập để triển khai ứng dụng ShareNote.</description>
-    </item>
-    
   </channel>
 </rss>

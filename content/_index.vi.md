@@ -30,6 +30,6 @@ Hãy chắc chắn rằng bạn đã xem qua tài liệu [Triển khai Ứng d�
 1. [Các bước chuẩn bị](1-prerequisite)
 2. [Khởi tạo Launch Template](2-launch-template)
 3. [Khởi tạo Target Group](3-target-group)
-4. [Khởi tạo Load Balancer](5-load-balance)
-5. [Khởi tạo Auto Scaling Group](4-asg) 
+4. [Khởi tạo Load Balancer](4-load-balance)
+5. [Khởi tạo Auto Scaling Group](5-asg) 
 6. [Kiểm tra kết quả](6-testing)
