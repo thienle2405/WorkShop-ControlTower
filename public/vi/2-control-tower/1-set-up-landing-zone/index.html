@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="vi" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.133.1">
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Thiết lập Control Tower :: Triển khai Ứng dụng ShareNote với Auto Scaling Group</title>
+
+    
+    <link href="/css/nucleus.css?1725088055" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1725088055" rel="stylesheet">
+    <link href="/css/hybrid.css?1725088055" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1725088055" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1725088055" rel="stylesheet">
+    <link href="/css/auto-complete.css?1725088055" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1725088055" rel="stylesheet">
+    <link href="/css/theme.css?1725088055" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1725088055" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1725088055" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1725088055"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/vi/2-control-tower/1-set-up-landing-zone/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1725088055"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1725088055"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/localhost:1313\/\/vi";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1725088055"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-overview/" title="Các bước chuẩn bị" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-overview/">
+          <b>1. </b>Các bước chuẩn bị
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-overview/1-task-details/" title="Tạo Security Group" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-overview/1-task-details/">
+          <b>1.1 </b>Tạo Security Group
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-overview/2-architectur-diagram/" title="Tạo ShareNote Database" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-overview/2-architectur-diagram/">
+          <b>1.2 </b>Tạo ShareNote Database
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-control-tower/" title="Thiết lập Control Tower" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/vi/2-control-tower/">
+          <b>2. </b>Thiết lập Control Tower
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-control-tower/1-set-up-landing-zone/" title="Thiết lập Control Tower" class="dd-item 
+        
+        active
+        
+        ">
+      <a href="/vi/2-control-tower/1-set-up-landing-zone/">
+          <b>2. </b>Thiết lập Control Tower
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-iam-identity-center/" title="Khởi tạo Target Group" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-iam-identity-center/">
+          <b>3. </b>Khởi tạo Target Group
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-scp-permissionsets/" title="Khởi tạo Load Balancer" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-scp-permissionsets/">
+          <b>4. </b>Khởi tạo Load Balancer
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-further-development/" title="Khởi tạo Auto Scaling Group" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-further-development/">
+          <b>5. </b>Khởi tạo Auto Scaling Group
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-testing/" title="Kiểm tra Kết quả" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-testing/">
+          <b>6. </b>Kiểm tra Kết quả
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-clean-up/" title="Dọn dẹp tài nguyên" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-clean-up/">
+          <b>7. </b>Dọn dẹp tài nguyên
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="http://awsstudygroup.com"><i class='fab fa-aws'></i> AWS Study Group - Blog</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/660548818043427/"><i class='fab fa-facebook'></i> AWS Study Group - Nhóm FB</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="//localhost:1313/2-control-tower/1-set-up-landing-zone/">English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="//localhost:1313/vi/2-control-tower/1-set-up-landing-zone/" selected>Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7831210&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>17-09-2021</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i>
+                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng</a>
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/vi/'>Quản lý nhiều tài khoản bằng AWS Control Tower và Identity Center</a> > <a href='/vi/2-control-tower/'>Thiết lập Control Tower</a> > Thiết lập Control Tower
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Thiết lập Control Tower
+            </h1>
+          
+
+        
+
+
+
+	<p>Khi bạn bắt đầu sử dụng AWS Control Tower, hệ thống sẽ hướng dẫn bạn qua quy trình thiết lập vùng hạ cánh (landing zone) – một môi trường đa tài khoản được chuẩn hóa theo các phương pháp tốt nhất của AWS. Vùng hạ cánh này không chỉ tự động hóa việc tạo các tài khoản AWS mới mà còn tích hợp sẵn các biện pháp bảo mật và tuân thủ, giúp bạn dễ dàng quản lý tài nguyên và duy trì sự nhất quán trên toàn bộ tổ chức.</p>
+<h4 id="thiết-lập-landing-zone">Thiết lập landing zone</h4>
+<p>Để thiết lập landing zone, ta thực hiện các bước sau:</p>
+<ol>
+<li>Truy cập vào AWS → Sử dụng thanh tìm tiếp và nhập từ khóa <strong>Control Tower</strong> → Chọn <strong>Set up landing zone</strong>.</li>
+</ol>
+<p><img alt="Launch Template" src="/images/2/2.1.png?width=90pc"></p>
+<ol start="2">
+<li>Ở trang <strong>Set up landing zone</strong>, bạn sẽ được mô tả thông tin chi tiết về AWS Control Tower, mô tả về giá và chọn vùng
+<ul>
+<li>AWS Control Tower sẽ có các quyền cần thiết để quản lý các đơn vị tổ chức (OUs) và tài khoản trong hạ tầng AWS Organizations của bạn.</li>
+<li>AWS Control Tower không mở rộng quản lý đối với các OUs và tài khoản hiện có. Thay vào đó, nó thiết lập một vùng hạ cánh riêng biệt chứa các tài nguyên được quản lý bởi AWS Control Tower, hoạt động song song với hạ tầng AWS Organizations hiện tại của bạn.</li>
+<li>Khi bạn thêm một tổ chức hiện có vào AWS Control Tower, quá trình này được gọi là &ldquo;Registering&rdquo; (Đăng ký) tổ chức. Khi bạn thêm một tài khoản AWS vào AWS Control Tower, quá trình này được gọi là &ldquo;Enrolling&rdquo; (Ghi danh) tài khoản.</li>
+<li>Sau khi thiết lập vùng hạ cánh, bạn có thể đăng ký (Register) các OUs hiện có chứa tối đa 300 tài khoản. Nếu một OU chứa nhiều hơn 300 tài khoản, bạn không thể đăng ký nó trong AWS Control Tower.</li>
+<li>AWS Control Tower sẽ công bố các sự kiện đến AWS CloudTrail.</li>
+</ul>
+</li>
+</ol>
+<p><img alt="Launch Template" src="/images/2/2.2.png?width=90pc"></p>
+<p>Tiếp theo là về <strong>giá cả</strong>, Bạn sẽ chịu phí cho các dịch vụ AWS liên quan mà AWS Control Tower sử dụng, dựa trên mức độ sử dụng.
+Lựa chọn <strong>Home Region</strong> cẩn thận vì nó sẽ quyết định nơi các tài nguyên chính sẽ được triển khai và không thể thay đổi sau khi thiết lập. Ở đây mình sẽ chọn Region Singapore.</p>
+<p><img alt="Launch Template" src="/images/2/2.3.png?width=90pc"></p>
+<p>Bạn cũng có thể chọn thêm các vùng để triển khai, nhưng bắc buộc phải có một <strong>Home Region.</strong></p>
+<p><img alt="Launch Template" src="/images/2/2.4.png?width=90pc"></p>
+<p>Tiếp theo là <strong>Region deny setting</strong> (Cài đặt từ chối vùng), cho phép thiết lập các kiểm soát nhằm cấm truy cập vào các dịch vụ và hoạt động của AWS theo từng vùng (Region).Tùy chọn này có thể được kích hoạt cho vùng hạ cánh (landing zone) và cho các Đơn vị Tổ chức (OUs) riêng lẻ.</p>
+<p><img alt="Launch Template" src="/images/2/2.5.png?width=90pc"></p>
+<ol start="3">
+<li>Bước tiếp theo là <strong>Configure organizational units (OUs)</strong> (Cấu hình các đơn vị tổ chức), trong đó bạn sẽ thiết lập cấu trúc OU cho vùng hạ cánh (landing zone) của mình.
+<ul>
+<li><strong>Foundational OU</strong>: AWS Control Tower sẽ tự động tạo một OU bảo mật (Security OU) để giúp bạn bắt đầu với cấu trúc OU được lên kế hoạch tốt. OU này chứa hai tài khoản chia sẻ: tài khoản lưu trữ log (log archive account) và tài khoản kiểm toán bảo mật (security audit account). Bạn có thể thay đổi tên OU này nếu cần, nhưng tên phải là duy nhất và có thể chỉnh sửa sau khi thiết lập vùng hạ cánh.</li>
+<li><strong>Additional OU</strong>: Để thiết lập hệ thống đa tài khoản, AWS Control Tower khuyến nghị bạn tạo thêm một OU phụ trong quá trình thiết lập vùng hạ cánh. OU này có thể được sử dụng để lưu trữ bất kỳ tài khoản sản xuất hoặc phát triển nào. Bạn có tùy chọn tạo OU mới hoặc bỏ qua bước này.</li>
+</ul>
+</li>
+</ol>
+<p><img alt="Launch Template" src="/images/2/2.6.png?width=90pc"></p>
+<p>Tạo mới OU có tên là <strong>Sandbox</strong> để chứa các tài khoản AWS đại diện cho từng môi trường (production, development, test,&hellip;)</p>
+<p><img alt="Launch Template" src="/images/2/2.7.png?width=90pc"></p>
+<ol start="4">
+<li>Bước tiếp theo ta sẽ cấu hình các tài khoản chia sẻ (shared accounts)</li>
+</ol>
+<p>Tài khoản quản lý sẽ là tại khoản root khi tạo aws, như đã giới thiệu, bạn sẽ cần nhiều tài khoản gmail, hoặc nếu bạn không có nhiều tài khoản gmail thì hãy làm theo Tip mình đã hướng dẫn, sử dụng email gốc nhưng thêm <strong>+something</strong> vào. Tạo tài khoản kiểm toán bảo mật (security audit account) và tài khoản lưu trữ log (log archive account).</p>
+<p><img alt="Launch Template" src="/images/2/2.8.png?width=90pc"></p>
+<p><img alt="Launch Template" src="/images/2/2.9.png?width=90pc"></p>
+<ol start="5">
+<li>Bước tiếp theo <strong>cấu hình bổ sung</strong> trong quá trình thiết lập AWS Control Tower</li>
+</ol>
+<ul>
+<li><strong>AWS Control Tower Sets Up AWS Account Access with IAM Identity Center:</strong> Đây là lựa chọn mặc định và được khuyến nghị cho người dùng mới hoặc khi bạn muốn sử dụng các nhóm và bộ quyền (permission sets) được quản lý bởi AWS Control Tower.</li>
+<li><strong>Self-managed AWS Account Access with IAM Identity Center or Another Method</strong>: Lựa chọn này phù hợp nếu bạn có yêu cầu tùy chỉnh cho việc quản lý quyền truy cập tài khoản AWS và không muốn AWS Control Tower quản lý quyền truy cập. Bạn sẽ phải tự cấu hình IAM Identity Center hoặc phương thức truy cập khác.</li>
+</ul>
+<p>Về cấu hình  <strong>AWS CloudTrail Configuration</strong> nhằm mục đích ghi lại các hành động trong AWS Control Tower như các sự kiện (events). Điều này giúp theo dõi và ghi lại các thay đổi, hành động xảy ra trong tổ chức AWS của bạn. Khi kích hoạt, AWS Control Tower sẽ tổng hợp thông tin từ tất cả các tài khoản vào một tổ chức CloudTrail và chuyển thông tin đã ghi nhận vào một bucket Amazon S3 được chỉ định. Điều này giúp theo dõi toàn diện các hoạt động trong tổ chức.</p>
+<p><img alt="Launch Template" src="/images/2/2.10.png?width=90pc"></p>
+<p>Cấu hình nhật ký và mã hóa KMS cho Amazon S3 trong AWS Control Tower.</p>
+<ul>
+<li><strong>Log configuration for Amazon S3 - optional:</strong>
+<ul>
+<li><strong>Amazon S3 bucket retention for logging:</strong> Cho phép nhập số năm giữ lại nhật ký, mặc định là 1 năm. Thời gian phải là số nguyên từ 1 đến 15, với giá trị dưới 1 năm sẽ được tính theo ngày.</li>
+<li><strong>Amazon S3 bucket retention for access logging:</strong> Thiết lập thời gian giữ lại nhật ký truy cập, mặc định là 10 năm. Thời gian giữ tương tự phải nằm trong khoảng từ 1 đến 15 năm, hoặc được tính theo ngày nếu dưới 1 năm.</li>
+</ul>
+</li>
+<li><strong>KMS Encryption - optional:</strong>
+<ul>
+<li>AWS Key Management Service (KMS) giúp tạo và quản lý các khóa mã hóa, kiểm soát tài nguyên trong AWS Control Tower.</li>
+<li>Bạn có thể chọn tùy chọn &ldquo;Enable and customize encryption settings&rdquo; (Bật và tùy chỉnh cài đặt mã hóa) nếu muốn sử dụng mã hóa KMS cho nhật ký AWS CloudTrail và AWS Config.</li>
+<li>Lưu ý: Không hỗ trợ các khóa mã hóa đa vùng (multi-region keys).
+<img alt="Launch Template" src="/images/2/2.11.png?width=90pc"></li>
+</ul>
+</li>
+</ul>
+<ol start="6">
+<li>
+<p>Bước cuối cùng sẽ là review lại và tiến hành <strong>set up landing zone</strong></p>
+<p><img alt="Launch Template" src="/images/2/2.12.png?width=90pc"></p>
+<p><img alt="Launch Template" src="/images/2/2.13.png?width=90pc"></p>
+<p><img alt="Launch Template" src="/images/2/2.14.png?width=90pc"></p>
+<p><img alt="Launch Template" src="/images/2/2.15.png?width=90pc"></p>
+</li>
+</ol>
+<p>Chúng ta sẽ mất một khoản thời gian chờ đợi, các chi tiết thiết lập cũng sẽ được hiển thị</p>
+<p><img alt="Launch Template" src="/images/2/2.16.png?width=90pc"></p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/vi/2-control-tower/" title="Thiết lập Control Tower"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/vi/3-iam-identity-center/" title="Khởi tạo Target Group" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1725088055"></script>
+    <script src="/js/perfect-scrollbar.min.js?1725088055"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1725088055"></script>
+    <script src="/js/jquery.sticky.js?1725088055"></script>
+    <script src="/js/featherlight.min.js?1725088055"></script>
+    <script src="/js/highlight.pack.js?1725088055"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1725088055"></script>
+    <script src="/js/learn.js?1725088055"></script>
+    <script src="/js/hugo-learn.js?1725088055"></script>
+
+    <link href="/mermaid/mermaid.css?1725088055" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1725088055"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

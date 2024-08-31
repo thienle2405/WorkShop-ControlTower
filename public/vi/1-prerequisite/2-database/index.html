@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="vi" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="generator" content="Hugo 0.133.1">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Tạo ShareNote Database :: Triển khai Ứng dụng ShareNote với Auto Scaling Group</title>
 
     
-    <link href="/css/nucleus.css?1631812248" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1631812248" rel="stylesheet">
-    <link href="/css/hybrid.css?1631812248" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1631812248" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1631812248" rel="stylesheet">
-    <link href="/css/auto-complete.css?1631812248" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1631812248" rel="stylesheet">
-    <link href="/css/theme.css?1631812248" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1631812248" rel="stylesheet">
+    <link href="/css/nucleus.css?1725081896" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1725081896" rel="stylesheet">
+    <link href="/css/hybrid.css?1725081896" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1725081896" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1725081896" rel="stylesheet">
+    <link href="/css/auto-complete.css?1725081896" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1725081896" rel="stylesheet">
+    <link href="/css/theme.css?1725081896" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1725081896" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1631812248" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1725081896" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1631812248"></script>
+    <script src="/js/jquery-3.3.1.min.js?1725081896"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1631812248"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1631812248"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1725081896"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1725081896"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1631812248"></script>
+<script type="text/javascript" src="/js/search.js?1725081896"></script>
 
     
   </div>
@@ -113,12 +113,12 @@
  
   
     
-    <li data-nav-id="/vi/1-prerequisite/1-security-group/" title="Tạo Security Group" class="dd-item 
+    <li data-nav-id="/vi/1-prerequisite/1-set-up-landing-zone/" title="Tạo Security Group" class="dd-item 
         
         
         
         ">
-      <a href="/vi/1-prerequisite/1-security-group/">
+      <a href="/vi/1-prerequisite/1-set-up-landing-zone/">
           <b>1.1 </b>Tạo Security Group
           
             <i class="fas fa-check read-icon"></i>
@@ -515,7 +515,7 @@
                   
                     
                     
-                      <option id="en" value="/1-prerequisite/2-database/">English</option>
+                      <option id="en" value="//localhost:1313/1-prerequisite/2-database/">English</option>
                     
                   
               
@@ -529,7 +529,7 @@
                   
                     
                     
-                      <option id="vi" value="/vi/1-prerequisite/2-database/" selected>Tiếng Việt</option>
+                      <option id="vi" value="//localhost:1313/vi/1-prerequisite/2-database/" selected>Tiếng Việt</option>
                     
                   
               
@@ -619,7 +619,7 @@
             
           
           
-            <a href='/vi/'>Triển khai Ứng dụng ShareNote với Auto Scaling Group</a> > <a href='/vi/1-prerequisite/'>Các bước chuẩn bị</a> > Tạo ShareNote Database
+            <a href='/vi/'>Quản lý nhiều tài khoản bằng AWS Control Tower, Landing Zones và Identity Center</a> > <a href='/vi/1-prerequisite/'>Các bước chuẩn bị</a> > Tạo ShareNote Database
           
         
           
@@ -676,7 +676,7 @@
 </ul>
 </li>
 </ol>
-<p><img src="/images/asg/002.png?width=90pc" alt="ChooseDatabase"></p>
+<p><img alt="ChooseDatabase" src="/images/asg/002.png?width=90pc"></p>
 
 <div class="notices info" ><p>Ứng dụng ShareNote sử dụng MySQL nên chúng ta cũng sẽ lựa chọn MySQL Engine.</p>
 </div>
@@ -684,7 +684,7 @@
 <ul>
 <li>Kéo màn hình xuống dưới, mục <strong>Templates</strong>: Chọn <strong>Free tier</strong>.</li>
 </ul>
-<p><img src="/images/1/2_Templates.png?width=90pc" alt="ChooseTemplates"></p>
+<p><img alt="ChooseTemplates" src="/images/1/2_Templates.png?width=90pc"></p>
 <ul>
 <li>Mục <strong>Settings</strong>:
 <ul>
@@ -706,7 +706,7 @@
 <div class="notices tip" ><p>Nếu bạn nhập kí tự đặc biệt (ví dụ: ! hoặc @ hoặc #), khi bạn kết nối tới cơ sở dữ liệu trên DB Instance từ EC2 Instance sử dụng hệ điều hành <strong>Ubuntu</strong> ở phần sau, bạn sẽ phải thực hiện thao tác bỏ qua (escape) đối với các kí tự đặc biệt ấy, và điều đó sẽ gia tăng độ phức tạp của bài lab này một cách không cần thiết.</p>
 </div>
 
-<p><img src="/images/asg/003.png?width=90pc" alt="DatabaseUsername&Password"></p>
+<p><img alt="DatabaseUsername&amp;Password" src="/images/asg/003.png?width=90pc"></p>
 <ol start="4">
 <li>Tiếp tục kéo màn hình xuống, mục <strong>DB instance Class</strong>: dùng để chọn phân loại DB Instance.</li>
 </ol>
@@ -715,7 +715,7 @@
 <li>Click chọn DB instance class : <strong>db.t2.micro</strong>.</li>
 <li>Giữ nguyên tùy chọn cho mục <strong>Storage</strong>.</li>
 </ul>
-<p><img src="/images/asg/004.png?width=90pc" alt="Database"></p>
+<p><img alt="Database" src="/images/asg/004.png?width=90pc"></p>
 <ol start="5">
 <li>Tiếp tục kéo màn hình xuống, mục <strong>Connectivity</strong>:</li>
 </ol>
@@ -727,7 +727,7 @@
 <li><strong>Existing VPC security groups</strong>: Chọn tên Security Group mà bạn đã tạo ở phần 1 (ví dụ: <strong>sharenote-sg</strong> và để nguyên <strong>default</strong> security group.)</li>
 <li><strong>Availability Zone</strong>: chọn <strong>ap-southeast-1a</strong></li>
 </ul>
-<p><img src="/images/asg/005.png?width=90pc" alt="Database"></p>
+<p><img alt="Database" src="/images/asg/005.png?width=90pc"></p>
 <ol start="6">
 <li>Kéo màn hình xuống và click để mở rộng mục <strong>Additional configuration</strong>.</li>
 </ol>
@@ -735,7 +735,7 @@
 <li>Tại mục <strong>Database options</strong> phần <strong>Initial database name</strong>: Nhập vào tên của database sẽ được khởi tạo ban đầu (ví dụ: <strong>NoteDB</strong>)</li>
 <li>Các phần còn lại, bạn hãy giữ nguyên mặc định.</li>
 </ul>
-<p><img src="/images/asg/006.png?width=90pc" alt="Database"></p>
+<p><img alt="Database" src="/images/asg/006.png?width=90pc"></p>
 <ol start="7">
 <li>
 <p>Kéo màn hình xuống cuối trang và click <strong>Create database</strong>.</p>
@@ -750,7 +750,7 @@
 <p>Ở trang thông tin database, tab <strong>Connectivity &amp; security</strong>, ghi chú lại <strong>Endpoint</strong> của database. Chúng ta sẽ sử dụng thông tin này cho việc cấu hình ở bước kế tiếp.</p>
 </li>
 </ol>
-<p><img src="/images/asg/008.png?width=90pc" alt="Database"></p>
+<p><img alt="Database" src="/images/asg/008.png?width=90pc"></p>
 <p>Trong bước này chúng ta đã hoàn thành việc tạo Database cho ShareNote, tiếp theo chúng ta sẽ tạo một EC2 instance để tiến hành cài đặt ứng dụng ShareNote.</p>
 
 
@@ -1032,7 +1032,7 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vi/1-prerequisite/1-security-group/" title="Tạo Security Group"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vi/1-prerequisite/1-set-up-landing-zone/" title="Tạo Security Group"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="/vi/1-prerequisite/3-deploy-sharenote/" title="Triển khai Máy ảo ShareNote" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
@@ -1045,19 +1045,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1631812248"></script>
-    <script src="/js/perfect-scrollbar.min.js?1631812248"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1631812248"></script>
-    <script src="/js/jquery.sticky.js?1631812248"></script>
-    <script src="/js/featherlight.min.js?1631812248"></script>
-    <script src="/js/highlight.pack.js?1631812248"></script>
+    <script src="/js/clipboard.min.js?1725081896"></script>
+    <script src="/js/perfect-scrollbar.min.js?1725081896"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1725081896"></script>
+    <script src="/js/jquery.sticky.js?1725081896"></script>
+    <script src="/js/featherlight.min.js?1725081896"></script>
+    <script src="/js/highlight.pack.js?1725081896"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1631812248"></script>
-    <script src="/js/learn.js?1631812248"></script>
-    <script src="/js/hugo-learn.js?1631812248"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1725081896"></script>
+    <script src="/js/learn.js?1725081896"></script>
+    <script src="/js/hugo-learn.js?1725081896"></script>
 
-    <link href="/mermaid/mermaid.css?1631812248" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1631812248"></script>
+    <link href="/mermaid/mermaid.css?1725081896" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1725081896"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="generator" content="Hugo 0.133.1">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Dọn dẹp tài nguyên :: Deploy ShareNote Application on Auto Scaling Group</title>
+    <title>Cleaning Up Resources :: Deploy ShareNote Application on Auto Scaling Group</title>
 
     
-    <link href="/css/nucleus.css?1631812248" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1631812248" rel="stylesheet">
-    <link href="/css/hybrid.css?1631812248" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1631812248" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1631812248" rel="stylesheet">
-    <link href="/css/auto-complete.css?1631812248" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1631812248" rel="stylesheet">
-    <link href="/css/theme.css?1631812248" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1631812248" rel="stylesheet">
+    <link href="/css/nucleus.css?1725112389" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1725112389" rel="stylesheet">
+    <link href="/css/hybrid.css?1725112389" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1725112389" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1725112389" rel="stylesheet">
+    <link href="/css/auto-complete.css?1725112389" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1725112389" rel="stylesheet">
+    <link href="/css/theme.css?1725112389" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1725112389" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1631812248" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1725112389" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1631812248"></script>
+    <script src="/js/jquery-3.3.1.min.js?1725112389"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1631812248"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1631812248"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1725112389"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1725112389"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1631812248"></script>
+<script type="text/javascript" src="/js/search.js?1725112389"></script>
 
     
   </div>
@@ -82,259 +82,13 @@
  
   
     
-    <li data-nav-id="/1-prerequisite/" title="Các bước chuẩn bị" class="dd-item 
+    <li data-nav-id="/1-overview/" title="Overiew" class="dd-item 
         
         
         
         ">
-      <a href="/1-prerequisite/">
-          <b>1. </b>Các bước chuẩn bị
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/1-prerequisite/1-security-group/" title="Tạo Security Group" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/1-prerequisite/1-security-group/">
-          <b>1.1 </b>Tạo Security Group
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/1-prerequisite/2-database/" title="Tạo ShareNote Database" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/1-prerequisite/2-database/">
-          <b>1.2 </b>Tạo ShareNote Database
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/1-prerequisite/3-deploy-sharenote/" title="Triển khai Máy ảo ShareNote" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/1-prerequisite/3-deploy-sharenote/">
-          <b>1.3 </b>Triển khai Máy ảo ShareNote
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/1-prerequisite/3-deploy-sharenote/1.3.1-createec2/" title="Tạo máy ảo EC2 Ubuntu" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/1-prerequisite/3-deploy-sharenote/1.3.1-createec2/">
-          <b>1.3.1 </b>Tạo máy ảo EC2 Ubuntu
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/1-prerequisite/3-deploy-sharenote/1.3.2-configure-db-sharenote/" title="Thiết lập cấu hình Database cho ShareNote" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/1-prerequisite/3-deploy-sharenote/1.3.2-configure-db-sharenote/">
-          <b>1.3.2 </b>Thiết lập cấu hình Database cho ShareNote
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/1-prerequisite/3-deploy-sharenote/1.3.3-autostart/" title="Thiết lập khởi chạy ứng dụng khi khởi chạy instance" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/1-prerequisite/3-deploy-sharenote/1.3.3-autostart/">
-          <b>1.3.3 </b>Thiết lập khởi chạy ứng dụng khi khởi chạy instance
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/1-prerequisite/4-create-ami/" title="Khởi tạo AMI từ Máy ảo" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/1-prerequisite/4-create-ami/">
-          <b>1.4 </b>Khởi tạo AMI từ Máy ảo
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/2-launch-template/" title="Khởi tạo Launch Template" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/2-launch-template/">
-          <b>2. </b>Khởi tạo Launch Template
+      <a href="/1-overview/">
+          <b>1. </b>Overiew
           
             <i class="fas fa-check read-icon"></i>
           
@@ -354,13 +108,13 @@
  
   
     
-    <li data-nav-id="/3-target-group/" title="Khởi tạo Target Group" class="dd-item 
+    <li data-nav-id="/2-control-tower/" title="Setting Up Control Tower" class="dd-item 
         
         
         
         ">
-      <a href="/3-target-group/">
-          <b>3. </b>Khởi tạo Target Group
+      <a href="/2-control-tower/">
+          <b>2. </b>Setting Up Control Tower
           
             <i class="fas fa-check read-icon"></i>
           
@@ -380,13 +134,13 @@
  
   
     
-    <li data-nav-id="/4-load-balance/" title="Khởi tạo Load Balancer" class="dd-item 
+    <li data-nav-id="/3-iam-identity-center/" title="Setting Up IAM Identity Center" class="dd-item 
         
         
         
         ">
-      <a href="/4-load-balance/">
-          <b>4. </b>Khởi tạo Load Balancer
+      <a href="/3-iam-identity-center/">
+          <b>3. </b>Setting Up IAM Identity Center
           
             <i class="fas fa-check read-icon"></i>
           
@@ -406,13 +160,13 @@
  
   
     
-    <li data-nav-id="/5-asg/" title="Khởi tạo Auto Scaling Group" class="dd-item 
+    <li data-nav-id="/4-scp-permissionsets/" title="Configuring SCPs and Permission Sets" class="dd-item 
         
         
         
         ">
-      <a href="/5-asg/">
-          <b>5. </b>Khởi tạo Auto Scaling Group
+      <a href="/4-scp-permissionsets/">
+          <b>4. </b>Configuring SCPs and Permission Sets
           
             <i class="fas fa-check read-icon"></i>
           
@@ -432,13 +186,39 @@
  
   
     
-    <li data-nav-id="/6-testing/" title="Kiểm tra Kết quả" class="dd-item 
+    <li data-nav-id="/5-further-development/" title="Further Development" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-further-development/">
+          <b>5. </b>Further Development
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-testing/" title="Testing Results" class="dd-item 
         
         
         
         ">
       <a href="/6-testing/">
-          <b>6. </b>Kiểm tra Kết quả
+          <b>6. </b>Testing Results
           
             <i class="fas fa-check read-icon"></i>
           
@@ -458,13 +238,13 @@
  
   
     
-    <li data-nav-id="/7-clean-up/" title="Dọn dẹp tài nguyên" class="dd-item 
+    <li data-nav-id="/7-clean-up/" title="Cleaning Up Resources" class="dd-item 
         
         active
         
         ">
       <a href="/7-clean-up/">
-          <b>7. </b>Dọn dẹp tài nguyên
+          <b>7. </b>Cleaning Up Resources
           
             <i class="fas fa-check read-icon"></i>
           
@@ -515,7 +295,7 @@
                   
                     
                     
-                      <option id="en" value="/7-clean-up/" selected>English</option>
+                      <option id="en" value="//localhost:1313/7-clean-up/" selected>English</option>
                     
                   
               
@@ -529,7 +309,7 @@
                   
                     
                     
-                      <option id="vi" value="/vi/7-clean-up/">Tiếng Việt</option>
+                      <option id="vi" value="//localhost:1313/vi/7-clean-up/">Tiếng Việt</option>
                     
                   
               
@@ -567,7 +347,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>17-09-2021</font></i>
+        <i><font color=orange>31-08-2024</font></i>
     </left>
     <left>
         <br>
@@ -615,7 +395,7 @@
             
           
           
-            <a href='/'>Triển khai Ứng dụng ShareNote với Auto Scaling Group</a> > Dọn dẹp tài nguyên
+            <a href='/'>Manage multiple accounts using AWS Control Tower and Identity Center</a> > Cleaning Up Resources
           
         
           
@@ -626,7 +406,17 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#delete-aws-iam-identity-center">Delete AWS IAM Identity Center</a></li>
+        <li><a href="#delete-aws-control-tower">Delete AWS Control Tower</a></li>
+        <li><a href="#delete-aws-organizations">Delete AWS Organizations</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -642,7 +432,7 @@
           
             <h1>
               
-              Dọn dẹp tài nguyên
+              Cleaning Up Resources
             </h1>
           
 
@@ -650,90 +440,86 @@
 
 
 
-	<p>Chúng ta sẽ dọn dẹp tài nguyên theo thứ tự như sau:</p>
-<ol>
-<li><strong>Xóa Auto Scaling Group</strong>:
+	<p>To delete <strong>AWS IAM Identity Center</strong>, <strong>AWS Control Tower</strong>, and <strong>AWS Organizations</strong>, you need to carefully follow the steps to ensure that all related resources and configurations are properly removed without affecting your AWS environment. Below is a detailed step-by-step guide:</p>
+<h3 id="delete-aws-iam-identity-center">Delete AWS IAM Identity Center</h3>
+<p><strong>Note:</strong> Before deleting AWS IAM Identity Center, ensure that you no longer need the identity and access management configurations of this service.</p>
+<p><strong>Steps to follow:</strong></p>
+<p><strong>1. Delete Permission Sets:</strong></p>
 <ul>
-<li>Truy cập <strong>EC2 Management Console</strong></li>
-<li>Trên thanh điều hướng bên trái, chọn Auto Scaling Groups</li>
-<li>Chọn Auto Scaling Group liên quan tới bài lab.</li>
-<li>Click Delete</li>
-<li>Gõ delete vào ô trống và nhấn delete</li>
+<li>Access the AWS Management Console.</li>
+<li>Navigate to IAM Identity Center (formerly AWS SSO).</li>
+<li>Select Permission Sets, and delete each permission set that is no longer needed.</li>
 </ul>
-</li>
-<li><strong>Xóa Load Balancer</strong>:
+<p><strong>2. Delete Users and Groups:</strong></p>
 <ul>
-<li>Truy cập <strong>EC2 Management Console</strong></li>
-<li>Trên thanh điều hướng bên trái, chọn Load Balancers</li>
-<li>Chọn Load Balancer liên quan tới bài lab.</li>
-<li>Click Actions.</li>
-<li>Click Delete.</li>
+<li>Select Users and Groups, then delete each user and group that is no longer needed.</li>
 </ul>
-</li>
-<li><strong>Xóa Target Group</strong>:
+<p><strong>3. Delete External Identity Provider Configurations (If Any):</strong></p>
 <ul>
-<li>Truy cập <strong>EC2 Management Console</strong></li>
-<li>Trên thanh điều hướng bên trái, chọn Target Groups</li>
-<li>Chọn Target Group liên quan tới bài lab.</li>
-<li>Click Actions.</li>
-<li>Click Delete.</li>
-<li>Click Yes, delete</li>
+<li>If you have set up a connection with an external identity provider (Identity Provider - IdP), delete this configuration in the Settings section of IAM Identity Center.</li>
 </ul>
-</li>
-<li><strong>Xóa Launch Template</strong>:
+<p><strong>4. Disable IAM Identity Center:</strong></p>
 <ul>
-<li>Truy cập <strong>EC2 Management Console</strong></li>
-<li>Trên thanh điều hướng bên trái, chọn Launch Templates</li>
-<li>Chọn Launch Template liên quan tới bài lab.</li>
-<li>Click Actions.</li>
-<li>Click Delete template</li>
-<li>Gõ delete vào ô trống và nhấn delete</li>
-</ul>
+<li>
+<p>Go to Settings in IAM Identity Center.</p>
 </li>
-<li><strong>Xóa AMI</strong>:
+<li>
+<p>Click on Disable IAM Identity Center to disable the service.</p>
+</li>
+</ul>
+<h3 id="delete-aws-control-tower">Delete AWS Control Tower</h3>
+<p><strong>Note:</strong> Make sure you have moved or backed up any important data in the accounts managed by Control Tower.</p>
+<p><strong>Steps to follow:</strong></p>
+<p><strong>1. Decommission AWS Control Tower:</strong></p>
 <ul>
-<li>Truy cập <strong>EC2 Management Console</strong></li>
-<li>Trên thanh điều hướng bên trái, chọn AMIs</li>
-<li>Chọn AMI liên quan tới bài lab.</li>
-<li>Click Actions.</li>
-<li>Click Deregister.</li>
-<li>Click Continue.</li>
-</ul>
+<li>
+<p>Access the AWS Management Console and navigate to AWS Control Tower.</p>
 </li>
-<li><strong>Terminate EC2 instance</strong>
+<li>
+<p>Select Landing zone settings.</p>
+</li>
+<li>
+<p>Click on Decommission landing zone to begin the process of removing AWS Control Tower.</p>
+</li>
+</ul>
+<p><strong>2. Delete Resources Created by Control Tower:</strong></p>
 <ul>
-<li>Truy cập <strong>EC2 Management Console</strong></li>
-<li>Trên thanh điều hướng bên trái, chọn Intances</li>
-<li>Chọn tất cả EC2 Instance liên quan tới bài lab.</li>
-<li>Click Actions.</li>
-<li>Click Manage Instance State.</li>
-<li>Chọn Terminate.</li>
-<li>Click Change State</li>
-</ul>
+<li>
+<p>CloudFormation Stacks: Delete all stacks related to AWS Control Tower, starting with dependent stacks before deleting the main stack.</p>
 </li>
-<li><strong>Xóa DB Instance</strong>
+<li>
+<p>AWS Service Catalog Products: Remove products created through AWS Service Catalog.
+<strong>3. Delete Shared Accounts (Log Archive, Audit):</strong></p>
+</li>
+<li>
+<p>If the Log Archive and Audit accounts are no longer needed, you can transfer or delete them.</p>
+</li>
+</ul>
+<h3 id="delete-aws-organizations">Delete AWS Organizations</h3>
+<p><strong>Note:</strong> Ensure that you have removed all child accounts from the organization before deleting AWS Organizations.</p>
+<p><strong>Steps to follow:</strong></p>
+<p><strong>1. Move or Delete Child Accounts:</strong></p>
 <ul>
-<li>Truy cập <strong>RDS Management Console</strong></li>
-<li>Trên thanh điều hướng bên trái, chọn Databases</li>
-<li>Chọn tất cả DB Instance liên quan tới bài lab.</li>
-<li>Click Actions.</li>
-<li>Click Delete</li>
-<li>Bỏ chọn <em>Create final snapshot?</em> và chọn <em>I acknowledge that upon instance deletion, automated backups, including system snapshots and point-in-time recovery, will no longer be available</em></li>
-<li>Gõ <em>delete me</em> vào ô trống.</li>
-<li>Click <em>Delete</em></li>
-</ul>
+<li>
+<p>Access AWS Organizations from the AWS Management Console.</p>
 </li>
-<li><strong>Xóa Security Group</strong>
+<li>
+<p>Select the child accounts, and either move them out of the organization or delete them if they are no longer needed.</p>
+</li>
+</ul>
+<p><strong>2. Delete OUs (Organizational Units) and SCPs:</strong></p>
 <ul>
-<li>Truy cập <strong>EC2 Management Console</strong></li>
-<li>Trên thanh điều hướng bên trái, chọn Security Groups</li>
-<li>Chọn tất cả Security Groups liên quan tới bài lab.</li>
-<li>Click Actions.</li>
-<li>Click Delete security groups</li>
-<li>Click Delete</li>
+<li>Delete all Organizational Units (OUs) and Service Control Policies (SCPs) created within the organization.</li>
 </ul>
+<p><strong>3. Delete the Organization:</strong></p>
+<ul>
+<li>
+<p>After deleting all child accounts, OUs, and SCPs, return to the main screen of AWS Organizations.</p>
 </li>
-</ol>
+<li>
+<p>Select Delete Organization to completely remove AWS Organizations.</p>
+</li>
+</ul>
 
 
 
@@ -782,124 +568,8 @@
 
                     
                     
-                        
-                    
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
             
         
@@ -1010,10 +680,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/6-testing/" title="Kiểm tra Kết quả"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/6-testing/" title="Testing Results"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/1-prerequisite/" title="Các bước chuẩn bị" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/1-overview/" title="Overiew" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1023,19 +693,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1631812248"></script>
-    <script src="/js/perfect-scrollbar.min.js?1631812248"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1631812248"></script>
-    <script src="/js/jquery.sticky.js?1631812248"></script>
-    <script src="/js/featherlight.min.js?1631812248"></script>
-    <script src="/js/highlight.pack.js?1631812248"></script>
+    <script src="/js/clipboard.min.js?1725112389"></script>
+    <script src="/js/perfect-scrollbar.min.js?1725112389"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1725112389"></script>
+    <script src="/js/jquery.sticky.js?1725112389"></script>
+    <script src="/js/featherlight.min.js?1725112389"></script>
+    <script src="/js/highlight.pack.js?1725112389"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1631812248"></script>
-    <script src="/js/learn.js?1631812248"></script>
-    <script src="/js/hugo-learn.js?1631812248"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1725112389"></script>
+    <script src="/js/learn.js?1725112389"></script>
+    <script src="/js/hugo-learn.js?1725112389"></script>
 
-    <link href="/mermaid/mermaid.css?1631812248" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1631812248"></script>
+    <link href="/mermaid/mermaid.css?1725112389" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1725112389"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

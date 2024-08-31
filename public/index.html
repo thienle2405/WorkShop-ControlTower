@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="generator" content="Hugo 0.133.1">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Triển khai Ứng dụng ShareNote với Auto Scaling Group :: Deploy ShareNote Application on Auto Scaling Group</title>
+    <title>Manage multiple accounts using AWS Control Tower and Identity Center :: Deploy ShareNote Application on Auto Scaling Group</title>
 
     
-    <link href="/css/nucleus.css?1631812248" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1631812248" rel="stylesheet">
-    <link href="/css/hybrid.css?1631812248" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1631812248" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1631812248" rel="stylesheet">
-    <link href="/css/auto-complete.css?1631812248" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1631812248" rel="stylesheet">
-    <link href="/css/theme.css?1631812248" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1631812248" rel="stylesheet">
+    <link href="/css/nucleus.css?1725112389" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1725112389" rel="stylesheet">
+    <link href="/css/hybrid.css?1725112389" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1725112389" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1725112389" rel="stylesheet">
+    <link href="/css/auto-complete.css?1725112389" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1725112389" rel="stylesheet">
+    <link href="/css/theme.css?1725112389" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1725112389" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1631812248" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1725112389" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1631812248"></script>
+    <script src="/js/jquery-3.3.1.min.js?1725112389"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1631812248"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1631812248"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1725112389"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1725112389"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1631812248"></script>
+<script type="text/javascript" src="/js/search.js?1725112389"></script>
 
     
   </div>
@@ -82,259 +82,13 @@
  
   
     
-    <li data-nav-id="/1-prerequisite/" title="Các bước chuẩn bị" class="dd-item 
+    <li data-nav-id="/1-overview/" title="Overiew" class="dd-item 
         
         
         
         ">
-      <a href="/1-prerequisite/">
-          <b>1. </b>Các bước chuẩn bị
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/1-prerequisite/1-security-group/" title="Tạo Security Group" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/1-prerequisite/1-security-group/">
-          <b>1.1 </b>Tạo Security Group
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/1-prerequisite/2-database/" title="Tạo ShareNote Database" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/1-prerequisite/2-database/">
-          <b>1.2 </b>Tạo ShareNote Database
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/1-prerequisite/3-deploy-sharenote/" title="Triển khai Máy ảo ShareNote" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/1-prerequisite/3-deploy-sharenote/">
-          <b>1.3 </b>Triển khai Máy ảo ShareNote
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/1-prerequisite/3-deploy-sharenote/1.3.1-createec2/" title="Tạo máy ảo EC2 Ubuntu" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/1-prerequisite/3-deploy-sharenote/1.3.1-createec2/">
-          <b>1.3.1 </b>Tạo máy ảo EC2 Ubuntu
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/1-prerequisite/3-deploy-sharenote/1.3.2-configure-db-sharenote/" title="Thiết lập cấu hình Database cho ShareNote" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/1-prerequisite/3-deploy-sharenote/1.3.2-configure-db-sharenote/">
-          <b>1.3.2 </b>Thiết lập cấu hình Database cho ShareNote
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/1-prerequisite/3-deploy-sharenote/1.3.3-autostart/" title="Thiết lập khởi chạy ứng dụng khi khởi chạy instance" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/1-prerequisite/3-deploy-sharenote/1.3.3-autostart/">
-          <b>1.3.3 </b>Thiết lập khởi chạy ứng dụng khi khởi chạy instance
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/1-prerequisite/4-create-ami/" title="Khởi tạo AMI từ Máy ảo" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/1-prerequisite/4-create-ami/">
-          <b>1.4 </b>Khởi tạo AMI từ Máy ảo
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/2-launch-template/" title="Khởi tạo Launch Template" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/2-launch-template/">
-          <b>2. </b>Khởi tạo Launch Template
+      <a href="/1-overview/">
+          <b>1. </b>Overiew
           
             <i class="fas fa-check read-icon"></i>
           
@@ -354,13 +108,13 @@
  
   
     
-    <li data-nav-id="/3-target-group/" title="Khởi tạo Target Group" class="dd-item 
+    <li data-nav-id="/2-control-tower/" title="Setting Up Control Tower" class="dd-item 
         
         
         
         ">
-      <a href="/3-target-group/">
-          <b>3. </b>Khởi tạo Target Group
+      <a href="/2-control-tower/">
+          <b>2. </b>Setting Up Control Tower
           
             <i class="fas fa-check read-icon"></i>
           
@@ -380,13 +134,13 @@
  
   
     
-    <li data-nav-id="/4-load-balance/" title="Khởi tạo Load Balancer" class="dd-item 
+    <li data-nav-id="/3-iam-identity-center/" title="Setting Up IAM Identity Center" class="dd-item 
         
         
         
         ">
-      <a href="/4-load-balance/">
-          <b>4. </b>Khởi tạo Load Balancer
+      <a href="/3-iam-identity-center/">
+          <b>3. </b>Setting Up IAM Identity Center
           
             <i class="fas fa-check read-icon"></i>
           
@@ -406,13 +160,13 @@
  
   
     
-    <li data-nav-id="/5-asg/" title="Khởi tạo Auto Scaling Group" class="dd-item 
+    <li data-nav-id="/4-scp-permissionsets/" title="Configuring SCPs and Permission Sets" class="dd-item 
         
         
         
         ">
-      <a href="/5-asg/">
-          <b>5. </b>Khởi tạo Auto Scaling Group
+      <a href="/4-scp-permissionsets/">
+          <b>4. </b>Configuring SCPs and Permission Sets
           
             <i class="fas fa-check read-icon"></i>
           
@@ -432,13 +186,39 @@
  
   
     
-    <li data-nav-id="/6-testing/" title="Kiểm tra Kết quả" class="dd-item 
+    <li data-nav-id="/5-further-development/" title="Further Development" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-further-development/">
+          <b>5. </b>Further Development
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-testing/" title="Testing Results" class="dd-item 
         
         
         
         ">
       <a href="/6-testing/">
-          <b>6. </b>Kiểm tra Kết quả
+          <b>6. </b>Testing Results
           
             <i class="fas fa-check read-icon"></i>
           
@@ -458,13 +238,13 @@
  
   
     
-    <li data-nav-id="/7-clean-up/" title="Dọn dẹp tài nguyên" class="dd-item 
+    <li data-nav-id="/7-clean-up/" title="Cleaning Up Resources" class="dd-item 
         
         
         
         ">
       <a href="/7-clean-up/">
-          <b>7. </b>Dọn dẹp tài nguyên
+          <b>7. </b>Cleaning Up Resources
           
             <i class="fas fa-check read-icon"></i>
           
@@ -515,7 +295,7 @@
                   
                     
                     
-                      <option id="en" value="/" selected>English</option>
+                      <option id="en" value="//localhost:1313/" selected>English</option>
                     
                   
               
@@ -529,7 +309,7 @@
                   
                     
                     
-                      <option id="vi" value="/vi/">Tiếng Việt</option>
+                      <option id="vi" value="//localhost:1313/vi/">Tiếng Việt</option>
                     
                   
               
@@ -567,7 +347,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>17-09-2021</font></i>
+        <i><font color=orange>31-08-2024</font></i>
     </left>
     <left>
         <br>
@@ -606,27 +386,50 @@
 </span>
 
  
-<h1 id="triển-khai-ứng-dụng-sharenote-với-auto-scaling-group">Triển khai Ứng dụng ShareNote với Auto Scaling Group</h1>
-<h4 id="tổng-quan">Tổng quan</h4>
-<p>Ở bài thực hành này, chúng ta sẽ tiến hành việc triển khai ứng dụng với <strong>Auto Scaling Group</strong> nhằm đảm bảo khả năng co giãn của ứng dụng đó theo nhu cầu của người truy cập.
-Thêm vào đó, chúng ta cũng sẽ triển khai <strong>Load Balancer</strong> nhằm cân bằng tải và điều phối các yêu cầu truy cập từ phía người dùng đến Application Tier của chúng ta.</p>
-<p>Hãy chắc chắn rằng bạn đã xem qua tài liệu <a href="https://000004.awsstudygroup.com/">Triển khai Ứng dụng ShareNote trên Máy ảo Windows/AmazonLinux</a> và nắm được cách triển khai ứng dụng trên máy ảo. Chúng ta sẽ cần sử dụng máy ảo được triển khai ShareNote cho việc triển khai đồng loạt và mở rộng trong Auto Scaling Group.</p>
-<h4 id="auto-scaling-group">Auto Scaling Group</h4>
-<p><strong>Auto Scaling Group</strong> (<em>nhóm co giãn tự động</em>) là một nhóm các EC2 Instance. Nhóm này có thể co giãn số lượng của các EC2 Instance thành viên theo <strong>chính sách co giãn</strong> (<em>scaling policy</em>) mà bạn đặt ra.</p>
-<h4 id="launch-template">Launch Template</h4>
-<p><strong>Launch Template</strong> (<em>khuôn mẫu khởi tạo</em>) là một tính năng giúp bạn tạo khuôn mẫu cho việc khởi tạo các EC2 Instance. Nhờ thế, bạn có thể quy trình hóa và đơn giản hóa công tác khởi tạo các EC2 Instance cho dịch vụ <strong>Auto Scaling</strong> (<em>co giãn tự động</em>).</p>
-<h4 id="load-balancer">Load Balancer</h4>
-<p><strong>Load Balancer</strong> (<em>máy cân bằng tải</em>) là một công cụ có thể phân phối lưu lượng dữ liệu được trao đổi tới các tài nguyên AWS (cụ thể trong bài lab này là các EC2 Instances) trong <strong>Target Group</strong>.</p>
-<h4 id="target-group">Target Group</h4>
-<p><strong>Target Group</strong> (<em>nhóm mục tiêu</em>) là một nhóm những thành phần tài nguyên AWS sẽ nhận lưu lượng dữ liệu được phân phối và truyền tải bởi <strong>Load Balancer</strong>.</p>
-<h4 id="nội-dung">Nội dung:</h4>
+<h1 id="managing-multiple-accounts-with-aws-control-tower-and-identity-center">Managing Multiple Accounts with AWS Control Tower and Identity Center</h1>
+<h4 id="introduction">Introduction</h4>
+<p>In AWS projects, efficient operation and security assurance are top priorities. One of the best practices to achieve this is by separating environments (such as development, testing, production) across different AWS accounts. Such separation helps improve access control, isolate resources, and minimize security risks if an incident occurs in one account.</p>
+<p>This article will guide you on using <strong>AWS IAM Identity Center</strong> (formerly AWS SSO) combined with <strong>AWS Control Tower</strong> to safely set up and manage a multi-account environment. <strong>AWS Control Tower</strong> helps establish a standardized landing zone, automating the creation of AWS accounts with built-in security and compliance measures. Meanwhile, <strong>IAM Identity Center</strong> simplifies managing access and permissions for users across AWS accounts, making it easy to control who can do what in each specific account.</p>
+<h4 id="aws-control-tower">AWS Control Tower</h4>
+<p><strong>AWS Control Tower</strong> is a service that simplifies setting up and managing a secure, multi-account AWS environment that adheres to AWS best practices. It establishes a secure Landing Zone with AWS accounts, basic network architecture, and security and compliance controls.</p>
+<h4 id="key-features-of-aws-control-tower-include">Key features of AWS Control Tower include:</h4>
 <ol>
-<li><a href="1-prerequisite">Các bước chuẩn bị</a></li>
-<li><a href="2-launch-template">Khởi tạo Launch Template</a></li>
-<li><a href="3-target-group">Khởi tạo Target Group</a></li>
-<li><a href="5-load-balance">Khởi tạo Load Balancer</a></li>
-<li><a href="4-asg">Khởi tạo Auto Scaling Group</a></li>
-<li><a href="6-testing">Kiểm tra kết quả</a></li>
+<li><strong>Account Vending</strong>: AWS Control Tower automates the creation of new AWS accounts, applying predefined policies and configurations during the account setup process. This helps ensure consistency and compliance across all accounts.</li>
+<li><strong>Multi-account structure:</strong> Control Tower sets up a multi-account environment based on AWS best practices, including the use of AWS Organizations to create and manage accounts, and Organizational Units (OUs) to organize accounts.</li>
+<li><strong>Guardrails:</strong> Control Tower implements guardrails, which are pre-configured policies, to enforce security, compliance, and operational best practices. Guardrails help prevent non-compliant actions and configurations.
+<ul>
+<li><strong>Detective Guardrails:</strong> Provide visibility into the AWS environment, such as enabling AWS CloudTrail and AWS Config.</li>
+<li><strong>Preventive Guardrails:</strong> Prevent non-compliant actions or configurations, such as enforcing MFA for IAM users and blocking the creation of insecure S3 buckets.</li>
+<li><strong>Infrastructure Guardrails:</strong> Handle foundational aspects of the AWS environment, including setting up the AWS Landing Zone, organizing accounts, and configuring VPCs.</li>
+<li><strong>Data Residency Guardrails:</strong> Meet data storage and sovereignty requirements, such as setting appropriate AWS Regions.</li>
+<li><strong>Operational Guardrails:</strong> Focus on best operational practices, such as configuring AWS CloudWatch Alarms and defining backup and data retention policies.</li>
+</ul>
+</li>
+</ol>
+<h4 id="service-control-policies-scps">Service Control Policies (SCPs)</h4>
+<p><strong>SCPs</strong> are a type of guardrail that allows you to set detailed permissions and restrictions on services and actions within an account or OU, ensuring that only permitted actions can be performed.</p>
+<h4 id="audit">Audit</h4>
+<p>Provides compliance monitoring capabilities through AWS Config and AWS CloudTrail, helping to track changes, ensure compliance, and investigate security incidents.</p>
+<h4 id="centralized-logging-and-monitoring">Centralized Logging and Monitoring</h4>
+<p>Integrates with <strong>AWS Config</strong>, <strong>AWS CloudTrail</strong>, and <strong>AWS Config Rules</strong> to provide centralized logging and monitoring capabilities, ensuring compliance and security for the AWS environment.</p>
+<h4 id="aws-organizations">AWS Organizations</h4>
+<p><strong>AWS Organizations</strong> is a service that helps organize and manage multiple AWS accounts in a centralized environment. It allows the creation of a hierarchical account structure with OUs and the application of SCPs to manage access and security across AWS accounts in the entire organization.</p>
+<h4 id="aws-iam-identity-center-trước-đây-là-sso">AWS IAM Identity Center (trước đây là SSO)</h4>
+<ul>
+<li>This service inherits AWS Single Sign-On and is a central user management service in an environment with multiple accounts operated in an AWS organization, making it easy for you to log in to each account.</li>
+<li>It is the recommended service for managing human user access to AWS resources.</li>
+<li>It allows you to connect not only AWS accounts but also Business Cloud Apps or Custom SAML 2.0-enabled Apps.</li>
+<li>IAM Identity Center integrates with MS AD to store and retrieve user information.</li>
+</ul>
+<p><img alt="Diagram" src="/images/home/IAMIdentityCenter.png?width=60pc"></p>
+<h4 id="contents">Contents:</h4>
+<ol>
+<li><a href="/1-overview/">Overview </a></li>
+<li><a href="/2-control-tower/">Set up Control Tower </a></li>
+<li><a href="/3-iam-identity-center/">Set up IAM Identity Center</a></li>
+<li><a href="/4-scp-permissionsets/">Config SCP and Permission Sets</a></li>
+<li><a href="/5-further-development/">Further Development </a></li>
+<li><a href="/6-testing/">Testing the Results</a></li>
 </ol>
 	
   
@@ -669,124 +472,8 @@ Thêm vào đó, chúng ta cũng sẽ triển khai <strong>Load Balancer</strong
 
                     
                     
-                        
-                    
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
             
         
@@ -897,7 +584,7 @@ Thêm vào đó, chúng ta cũng sẽ triển khai <strong>Load Balancer</strong
 	 
 		
 		
-			<a class="nav nav-next" href="/1-prerequisite/" title="Các bước chuẩn bị" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/1-overview/" title="Overiew" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -907,19 +594,19 @@ Thêm vào đó, chúng ta cũng sẽ triển khai <strong>Load Balancer</strong
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1631812248"></script>
-    <script src="/js/perfect-scrollbar.min.js?1631812248"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1631812248"></script>
-    <script src="/js/jquery.sticky.js?1631812248"></script>
-    <script src="/js/featherlight.min.js?1631812248"></script>
-    <script src="/js/highlight.pack.js?1631812248"></script>
+    <script src="/js/clipboard.min.js?1725112389"></script>
+    <script src="/js/perfect-scrollbar.min.js?1725112389"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1725112389"></script>
+    <script src="/js/jquery.sticky.js?1725112389"></script>
+    <script src="/js/featherlight.min.js?1725112389"></script>
+    <script src="/js/highlight.pack.js?1725112389"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1631812248"></script>
-    <script src="/js/learn.js?1631812248"></script>
-    <script src="/js/hugo-learn.js?1631812248"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1725112389"></script>
+    <script src="/js/learn.js?1725112389"></script>
+    <script src="/js/hugo-learn.js?1725112389"></script>
 
-    <link href="/mermaid/mermaid.css?1631812248" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1631812248"></script>
+    <link href="/mermaid/mermaid.css?1725112389" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1725112389"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

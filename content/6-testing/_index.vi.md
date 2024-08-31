@@ -6,33 +6,44 @@ chapter = false
 pre = "<b>6. </b>"
 +++
 
-Trong bài thực hành này, chúng ta sẽ kiếm tra truy cập tới ShareNote và tiến hành tăng số lượng yêu cầu truy cập đến ứng dụng thông qua việc mở đồng loạt nhiều kết nối sử dụng công cụ **Webserver Stress Tool 8**. Bạn hãy nhấn vào [**link**](https://www.paessler.com/tools/webstress) này để tải về.
+Trong bài thực hành này, chúng ta sẽ truy cập vào hai user của IAM Identity Center để xem có đáp ứng được yêu cầu đề ra hay không?
 
-Bạn cũng có thể tải về trực tiếp tại link dưới:
+#### Kiểm tra user dt07 có toàn quyền truy cập vào cả ba môi trường
 
-{{%attachments style="orange" title="Webserver Stress Tool 8" pattern=".*(zip)"/%}}
+Truy cập vào trang chủ **IAM Identity Center** → **Dashboard** → **AWS access portal URL**
 
-#### Kiểm tra khả năng tự mở rộng của ứng dụng ShareNote được triển khai
+![Testing Result](/images/6/6.1.png?width=90pc)
 
-1. Giải nén file zip và cài đặt **Webserver Stress Tool 8** với tùy chọn mặc định.
-2. Khởi dộng **Webserver Stress Tool 8** để tiến hành tạo số lượng truy cập lớn đến Endpoint của Load Balancer.
-3. Nhấn vào tab **Test Type** và nhập thông số như hình dưới đây:
-  + **Run Unit** : 100000
-  + **Number of Users** : 101
-  + **Click Delay** : 1 
+Nhập password và mã MFA để đăng nhập
 
-![Testing Result](../../../images/6/6_TestType.png?width=90pc)
+![Testing Result](/images/6/6.2.png?width=90pc)
 
-4. Nhấn vào tab **URLs**, copy DNSName của ứng dụng ShareNote vào ô URL ( DNSName khi bạn tạo Load Balancer ở bước 4.Khởi tạo Load Balancer), và nhấn **Start Test**
+Kết quả cho chúng ta thấy tài khoản này có thể truy cập vào 3 môi trường với Full quyền. 
 
-![Testing Result](../../../images/6/6_HTTP.png?width=90pc)
+![Testing Result](/images/6/6.3.png?width=90pc)
 
-5. Sau một khoảng thời gian, kiểm tra phản hồi của Auto Scaling Group. Ta thấy số lượng instance được tăng lên số lượng tối đa mà chúng ta thiết lập là 3.
+Ta thử vào môi trường production và tạo thử một EC2 
 
-![Testing Result](../../../images/asg/043.png?width=90pc)
+![Testing Result](/images/6/6.4.png?width=90pc)
 
-6. Kiểm tra truy cập vào ứng dụng từ trình duyệt không bị gián đoạn.
+EC2 được khởi chạy thành công 
 
-![Testing Result](../../../images/6/6.png?width=90pc)
+![Testing Result](/images/6/6.5.png?width=90pc)
 
-Chúc mừng bạn vừa hoàn thành bài thực hành Triển khai ứng dụng ShareNote với Auto Scaling Group và Elastic Load Balancer.
+#### Kiểm tra user duythien chỉ có thể truy cập vào 2 môi trường developer và test, và chỉ có quyền đọc ở môi trường test 
+
+Đăng nhập như các bước trên
+
+![Testing Result](/images/6/6.6.png?width=90pc)
+
+Kết quả đúng như mong đợi 
+
+![Testing Result](/images/6/6.7.png?width=90pc)
+
+Bây gờ chúng ta thử truy cập vào môi trường test và tạo thử một EC2
+
+![Testing Result](/images/6/6.8.png?width=90pc)
+
+Vậy là chúng ta đã hoàn thành nội dung **Quản lý nhiều tài khoản bằng AWS Control Tower và Identity Center** 
+
+Chúc các bạn thành công và nhiều sức khỏe, cảm ơn đã theo dõi đến cuối cùng. 
